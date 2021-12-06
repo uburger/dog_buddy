@@ -1,10 +1,13 @@
 # dog_buddy
 
-## Card wall and Google Doc
+## Card wall, Google Doc and Miro
 
 https://trello.com/b/zPJT21iH/final-project
 
 https://docs.google.com/document/d/1v0bMJbm3tAUkiVJpnolTnL0xmqiC3YPIcBAQUWYHAZE/edit
+
+https://miro.com/app/board/uXjVOdZfGcw=/
+
 
 ## Quickstart
 
