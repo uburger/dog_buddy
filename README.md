@@ -1,8 +1,10 @@
 # dog_buddy
 
-## Card wall
+## Card wall and Google Doc
 
 https://trello.com/b/zPJT21iH/final-project
+
+https://docs.google.com/document/d/1v0bMJbm3tAUkiVJpnolTnL0xmqiC3YPIcBAQUWYHAZE/edit
 
 ## Quickstart
 
@@ -23,6 +25,21 @@ https://trello.com/b/zPJT21iH/final-project
 
 
 1. Clone  to your local machine
+
+1. Install Node.js dependencies
+    ```
+    npm install
+    ```
+1. Install an ESLint plugin for your editor. For example: [linter-eslint](https://github.com/AtomLinter/linter-eslint) for Atom.
+1. Install MongoDB
+    ```
+    brew tap mongodb/brew
+    brew install mongodb-community@4.2
+    ```
+    1. Start MongoDB
+    ```
+    brew services start mongodb-community@4.2
+    ```
 
 
 ### Start
