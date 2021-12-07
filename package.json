@@ -1,0 +1,53 @@
+{
+  "name": "dog-buddy",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint .",
+    "start": "tsc && nodemon ./bin/www",
+    "start:test": "tsc && PORT=3030 MONGODB_URL='mongodb://localhost/dog_buddy_test' npm start",
+    "test": "npm run lint && npm run test:unit && npm run test:integration",
+    "test:unit": "jest",
+    "test:integration": "cypress run"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.6",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-session": "^1.17.2",
+    "hbs": "^4.2.0",
+    "http-errors": "~1.6.3",
+    "method-override": "^3.0.0",
+    "mongodb": "^3.7.3",
+    "mongoose": "^5.13.13",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "cypress": "^9.1.1",
+    "eslint": "^8.4.1",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-jest": "^22.21.0",
+    "eslint-plugin-node": "^10.0.0",
+    "jest": "^27.4.3"
+  },
+  "description": "## Card wall, Google Doc and Miro",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uburger/dog_buddy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uburger/dog_buddy/issues"
+  },
+  "homepage": "https://github.com/uburger/dog_buddy#readme"
+}
