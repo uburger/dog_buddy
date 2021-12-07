@@ -1,6 +1,7 @@
 "use strict"
 
 describe('Post model', function() {
-  expect(page).toContain("0")
-
+  it('can do awsome stuff', function () {
+  expect('test@test.com').toEqual('test@test.com');
+  });
 });

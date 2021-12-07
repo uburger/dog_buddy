@@ -1,19 +1,26 @@
 {
     "env": {
-        "browser": true,
         "commonjs": true,
-        "es2021": true
+        "es6": true,
+        "node": true,
+        "jest/globals": true,
+        "cypress/globals": true
     },
     "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended"
+      "eslint:recommended",
+      "plugin:node/recommended"
     ],
-    "parser": "@typescript-eslint/parser",
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
     "parserOptions": {
-        "ecmaVersion": 13
+        "ecmaVersion": 2018
     },
     "plugins": [
-        "@typescript-eslint"
+      "cypress",
+      "jest",
+      "node"
     ],
     "rules": {
     }

@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "lint": "eslint .",
-    "start": "tsc && nodemon ./bin/www",
-    "start:test": "tsc && PORT=3030 MONGODB_URL='mongodb://localhost/dog_buddy_test' npm start",
+    "start": "nodemon ./bin/www",
+    "start:test": "PORT=3030 MONGODB_URL='mongodb://localhost/dog_buddy_test' npm start",
     "test": "npm run lint && npm run test:unit && npm run test:integration",
     "test:unit": "jest",
     "test:integration": "cypress run"
@@ -29,8 +29,6 @@
     "typescript": "^4.5.2"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.6.0",
-    "@typescript-eslint/parser": "^5.6.0",
     "cypress": "^9.1.1",
     "eslint": "^8.4.1",
     "eslint-plugin-cypress": "^2.12.1",
