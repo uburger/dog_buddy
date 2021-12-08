@@ -8,25 +8,22 @@
     },
     "extends": [
       "eslint:recommended",
-      "plugin:node/recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      "plugin:node/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
-    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": 2018
     },
     "plugins": [
       "cypress",
       "jest",
-      "node",
-      "@typescript-eslint"
+      "node"
+    
     ],
     "rules": {
-        "@typescript-eslint/rule-name": "error"
+       
     }
 }
