@@ -9,10 +9,14 @@
   list-style-type: none;
   letter-spacing: 0.9px;
   line-height: 1.5;
+  text-align: center;
 }
 
 body {
-  background-color: #e7cfcd;
+  background-color: #e0d2d1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .body-container {
@@ -23,7 +27,6 @@ body {
 }
 
 /* FONT IMPORTED */
-/* Fira Sans */
 #container {
   width: 100%;
   display: inline-block;
@@ -54,25 +57,74 @@ nav {
 nav #brand {
   text-align: center;
 }
+@media (max-width: 768px) {
+  nav #brand {
+    display: none;
+  }
+}
+@media (min-width: 769px) {
+  nav #short {
+    display: none;
+  }
+}
 nav ul {
   text-align: right;
   list-style-type: none;
   list-style-type: none;
   margin: 0;
 }
+@media (max-width: 991px) {
+  nav ul {
+    display: none;
+  }
+}
 nav ul li {
   vertical-align: middle;
   display: inline;
   font-family: "Fira Sans", sans-serif;
-  font-size: 17px;
+  font-size: 1rem;
 }
 nav ul li a {
   color: #f2f2f2;
   text-decoration: none;
-  padding: 14px;
+  padding: 30px;
 }
 nav ul li a:hover {
   background-color: #56766d;
+}
+nav .icon-container {
+  display: flex;
+  justify-content: end;
+  padding-right: 10px;
+}
+nav .icon-container .menu-icon {
+  background: #56766d;
+  border-radius: 30%;
+}
+nav .icon-container .menu-icon:hover {
+  background: #455f57;
+  transition: all 0.3s ease;
+}
+nav .icon-container .menu-icon:active {
+  background: #202c29;
+}
+@media (min-width: 991px) {
+  nav .icon-container .menu-icon {
+    display: none;
+  }
+}
+nav .icon-container .menu-icon img {
+  width: 50px;
+  position: relative;
+}
+@media (min-width: 991px) {
+  nav .icon-container .menu-icon img {
+    display: none;
+  }
+}
+nav .icon-container .menu-icon img:hover {
+  transform: rotate(360deg);
+  transition-duration: 1s;
 }
 
 .content {
@@ -82,4 +134,18 @@ nav ul li a:hover {
 .space-div {
   height: 100px;
   width: 100%;
+}
+
+footer {
+  height: 67px;
+  overflow: hidden;
+  background-color: #b5c9c3;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  margin-top: auto;
+  justify-content: center;
+}
+footer p {
+  font-size: 0.7rem;
 }/*# sourceMappingURL=style.css.map */

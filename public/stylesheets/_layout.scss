@@ -1,7 +1,7 @@
 /* FONT IMPORTED */
-
-/* Fira Sans */
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+@import 'mobile';
+@import 'components';
 
 #container {
   width: 100%;
@@ -35,23 +35,57 @@ nav {
   align-items: center;
   #brand {
     text-align: center;
+    @include media("<=tablet") {
+      display: none;
+    }
+  }
+  #short {
+    @include media(">tablet") {
+      display: none;
+    }
   }
   ul {
     text-align: right;
     list-style-type: none;
     list-style-type: none;
     margin: 0;
+    @include media("<=smdt") {
+      display: none;
+    }
     li {
       vertical-align: middle;
       display: inline;
       font-family: "Fira Sans", sans-serif;
-      font-size: 17px;
+      font-size: 1rem;
       a {
         color: #f2f2f2;
         text-decoration: none;
-        padding: 14px;
+        padding: 30px;
         &:hover {
           background-color: $buttonColour;
+        }
+      }
+    }
+  }
+  .icon-container{
+    display: flex;
+    justify-content: end;
+    padding-right: 10px;
+    .menu-icon{
+      @include button-bg($buttonColour);
+      border-radius: 30%;
+      @include media(">=smdt"){
+        display: none;
+      }
+      img {
+        width: 50px;
+        position: relative;
+        @include media(">=smdt"){
+          display: none;
+        }
+        &:hover {
+          transform: rotate(360deg);
+          transition-duration: 1s;
         }
       }
     }
@@ -65,4 +99,18 @@ nav {
 .space-div {
   height: 100px;
   width: 100%;
+}
+
+footer {
+  height: 67px;
+  overflow: hidden;
+  background-color: $primaryColour;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  margin-top: auto;
+  justify-content: center;
+  p {
+    font-size: .7rem;
+  }
 }
