@@ -9,6 +9,10 @@
   list-style-type: none;
 }
 
+.body-container {
+  background-color: blue;
+}
+
 /* FONT IMPORTED */
 /* Fira Sans */
 #container {
@@ -27,16 +31,23 @@ img {
 }
 
 nav {
-  height: 68px;
+  height: 67px;
   overflow: hidden;
   background-color: #333;
   position: fixed;
   float: left;
   top: 0;
   width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+nav #brand {
+  text-align: center;
+  position: relative;
 }
 nav ul {
-  text-align: center;
+  text-align: right;
   list-style-type: none;
   list-style-type: none;
   margin: 0;
