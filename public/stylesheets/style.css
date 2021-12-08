@@ -4,13 +4,22 @@
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  color: black;
+  color: #4e5049;
   text-decoration: none;
   list-style-type: none;
+  letter-spacing: 0.9px;
+  line-height: 1.5;
+}
+
+body {
+  background-color: #e7cfcd;
 }
 
 .body-container {
-  background-color: blue;
+  padding-right: 15%;
+  padding-left: 15%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 /* FONT IMPORTED */
@@ -25,7 +34,7 @@
 img {
   display: flex;
   justify-self: end;
-  position: absolute;
+  position: fixed;
   width: 100px;
   z-index: 10;
 }
@@ -33,7 +42,7 @@ img {
 nav {
   height: 67px;
   overflow: hidden;
-  background-color: #333;
+  background-color: #b5c9c3;
   position: fixed;
   float: left;
   top: 0;
@@ -44,7 +53,6 @@ nav {
 }
 nav #brand {
   text-align: center;
-  position: relative;
 }
 nav ul {
   text-align: right;
@@ -64,9 +72,14 @@ nav ul li a {
   padding: 14px;
 }
 nav ul li a:hover {
-  background-color: #111;
+  background-color: #56766d;
 }
 
 .content {
   text-align: center;
+}
+
+.space-div {
+  height: 100px;
+  width: 100%;
 }/*# sourceMappingURL=style.css.map */

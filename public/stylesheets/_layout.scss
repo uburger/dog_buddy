@@ -11,11 +11,12 @@
 /** HEADER */
 
 /** NAVIGATION BAR */
+
 // logo
 img {
   display: flex;
   justify-self: end;
-  position: absolute;
+  position: fixed;
   width: 100px;
   z-index: 10;
 }
@@ -24,7 +25,7 @@ img {
 nav {
   height: 67px;
   overflow: hidden;
-  background-color: #333;
+  background-color: $primaryColour;
   position: fixed;
   float: left;
   top: 0;
@@ -34,7 +35,6 @@ nav {
   align-items: center;
   #brand {
     text-align: center;
-    position: relative;
   }
   ul {
     text-align: right;
@@ -51,7 +51,7 @@ nav {
         text-decoration: none;
         padding: 14px;
         &:hover {
-          background-color: #111;
+          background-color: $buttonColour;
         }
       }
     }
@@ -62,3 +62,7 @@ nav {
   text-align: center;
 }
 
+.space-div {
+  height: 100px;
+  width: 100%;
+}

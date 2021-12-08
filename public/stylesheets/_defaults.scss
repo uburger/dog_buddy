@@ -1,13 +1,23 @@
+// Initial presets for when an element is created
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  color: black;
+  color: $textColour;
   text-decoration: none;
   list-style-type: none;
+  letter-spacing: .9px;
+  line-height: 1.5;
+}
+
+body {
+  background-color: $secondaryColour;
 }
 
 .body-container {
-  background-color: blue;
+  padding-right: 15%;
+  padding-left: 15%;
+  margin-right: auto;
+  margin-left: auto;
 }
