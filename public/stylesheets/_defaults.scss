@@ -1,0 +1,20 @@
+// Initial presets for when an element is created
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: $textColour;
+  text-decoration: none;
+  list-style-type: none;
+  letter-spacing: .9px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+body {
+  background-color: $secondaryColour;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

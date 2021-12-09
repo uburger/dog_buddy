@@ -1,0 +1,172 @@
+/* FONT IMPORTED */
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+@import 'mobile';
+@import 'components';
+
+#container {
+  width: 100%;
+  display: inline-block;
+}
+
+/** HEADER */
+
+/** NAVIGATION BAR */
+
+// logo
+img {
+  display: flex;
+  justify-self: end;
+  position: fixed;
+  width: 100px;
+  z-index: 10;
+}
+// 
+
+nav {
+  height: 67px;
+  overflow: hidden;
+  background-color: $primaryColour;
+  position: fixed;
+  float: left;
+  top: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  #brand {
+    text-align: center;
+    @include media("<=tablet") {
+      display: none;
+    }
+  }
+  #short {
+    @include media(">tablet") {
+      display: none;
+    }
+  }
+  ul {
+    text-align: right;
+    list-style-type: none;
+    list-style-type: none;
+    margin: 0;
+    @include media("<=smdt") {
+      display: none;
+    }
+    li {
+      vertical-align: middle;
+      display: inline;
+      font-family: "Fira Sans", sans-serif;
+      font-size: 1rem;
+      a {
+        color: #f2f2f2;
+        text-decoration: none;
+        padding: 30px;
+        &:hover {
+          background-color: $buttonColour;
+        }
+      }
+    }
+  }
+  .icon-container{
+    display: flex;
+    justify-content: end;
+    padding-right: 10px;
+    .menu-icon{
+      @include button-bg($buttonColour);
+      border-radius: 30%;
+      @include media(">=smdt"){
+        display: none;
+      }
+      img {
+        width: 50px;
+        position: relative;
+        @include media(">=smdt"){
+          display: none;
+        }
+        &:hover {
+          transform: rotate(360deg);
+          transition-duration: 1s;
+        }
+      }
+    }
+  }
+}
+
+.content {
+  text-align: center;
+}
+
+.space-div {
+  height: 100px;
+  width: 100%;
+}
+
+.side-menu {
+  @include media(">=phone"){
+    display: none;
+  }
+}
+
+.active {
+  @include media(">=smdt"){
+    display: none;
+  }
+  position: absolute;
+  right: 0px;
+  height: 100vh;
+  width: 30vw;
+  background-color: $textColour;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  .icon-container{
+    margin-top: 10px;
+    padding-right: 10px;
+    align-self: flex-end;
+    .menu-icon{
+      @include button-bg($buttonColour);
+      border-radius: 30%;
+      img {
+        width: 50px;
+        position: relative;
+        @include media(">=smdt"){
+          display: none;
+        }
+        &:hover {
+          transform: rotate(360deg);
+          transition-duration: 1s;
+        }
+      }
+    }
+  }
+  ul {
+    margin-top: 25vw;
+    li {
+      margin: 50px;
+      a {
+        color: $secondaryColour;
+      }
+    }
+  }
+}
+
+.body-container {
+  height: 75%;
+  width: 95%;
+  
+}
+
+footer {
+  height: 67px;
+  overflow: hidden;
+  background-color: $primaryColour;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  margin-top: auto;
+  justify-content: center;
+  p {
+    font-size: .7rem;
+  }
+}
