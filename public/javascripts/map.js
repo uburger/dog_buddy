@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
   // const leafletMap = require('leaflet-map') 
   // Create and load the map
-  var L = window.L; 
+  /*global L*/
   const MAP = L.map('map').setView([51.505, -0.09], 13);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
