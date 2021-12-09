@@ -101,6 +101,26 @@ nav {
   width: 100%;
 }
 
+.side-menu {
+  @include media(">=phone"){
+    display: none;
+  }
+  position: absolute;
+  right: 0px;
+  height: 100vh;
+  width: 30vw;
+  background-color: $textColour;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  li {
+    margin: 50px;
+    a {
+      color: $secondaryColour;
+    }
+  }
+}
+
 footer {
   height: 67px;
   overflow: hidden;

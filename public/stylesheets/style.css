@@ -136,6 +136,28 @@ nav .icon-container .menu-icon img:hover {
   width: 100%;
 }
 
+.side-menu {
+  position: absolute;
+  right: 0px;
+  height: 100vh;
+  width: 30vw;
+  background-color: #4e5049;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 320px) {
+  .side-menu {
+    display: none;
+  }
+}
+.side-menu li {
+  margin: 50px;
+}
+.side-menu li a {
+  color: #e0d2d1;
+}
+
 footer {
   height: 67px;
   overflow: hidden;
