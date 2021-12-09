@@ -105,18 +105,48 @@ nav {
   @include media(">=phone"){
     display: none;
   }
+}
+
+.active {
   position: absolute;
   right: 0px;
   height: 100vh;
   width: 30vw;
   background-color: $textColour;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  li {
-    margin: 50px;
-    a {
-      color: $secondaryColour;
+  justify-content: start;
+  .icon-container{
+    margin-top: 10px;
+    padding-right: 10px;
+    align-self: flex-end;
+    .menu-icon{
+      @include button-bg($buttonColour);
+      border-radius: 30%;
+      @include media(">=smdt"){
+        display: none;
+      }
+      img {
+        width: 50px;
+        position: relative;
+        @include media(">=smdt"){
+          display: none;
+        }
+        &:hover {
+          transform: rotate(360deg);
+          transition-duration: 1s;
+        }
+      }
+    }
+  }
+  ul {
+    margin-top: 25vw;
+    li {
+      margin: 50px;
+      a {
+        color: $secondaryColour;
+      }
     }
   }
 }
