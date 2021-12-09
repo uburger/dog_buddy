@@ -105,6 +105,7 @@ nav {
   @include media(">=phone"){
     display: none;
   }
+  z-index: 2;
 }
 
 .active {
@@ -154,7 +155,7 @@ nav {
 .body-container {
   height: 75%;
   width: 95%;
-  
+  z-index: 1;
 }
 
 footer {

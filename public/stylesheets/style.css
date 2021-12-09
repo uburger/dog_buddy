@@ -129,6 +129,9 @@ nav .icon-container .menu-icon img:hover {
   width: 100%;
 }
 
+.side-menu {
+  z-index: 2;
+}
 @media (min-width: 320px) {
   .side-menu {
     display: none;
@@ -193,6 +196,7 @@ nav .icon-container .menu-icon img:hover {
 .body-container {
   height: 75%;
   width: 95%;
+  z-index: 1;
 }
 
 footer {
