@@ -7,6 +7,9 @@
 var app = require('../app');
 var debug = require('debug')('dog-buddy:server');
 var http = require('http');
+var mongoose = require('mongoose');
+var bcrypt = require('bcrypt'); 
+
 
 /**
  * Get port from environment and store in Express.
@@ -20,6 +23,18 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+
+/**
+ * Connect to MongoDB
+ **/
+
+ var mongoDbUrl = process.env.MONGODB_URL || 'mongodb://localhost/PPPP';
+ mongoose.connect(mongoDbUrl, {
+   useNewUrlParser: true,
+   useUnifiedTopology: true
+ });
+ var db = mongoose.connection;
+ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 /**
  * Listen on provided port, on all network interfaces.
