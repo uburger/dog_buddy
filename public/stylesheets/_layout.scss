@@ -102,13 +102,12 @@ nav {
 }
 
 .side-menu {
-  @include media(">=phone"){
-    display: none;
-  }
+  // @include media(">=phone"){
+  //   display: none;
+  // }
   z-index: 2;
-}
-
-.active {
+  transform: translateX(100%);
+  transition: 1s ease;
   @include media(">=smdt"){
     display: none;
   }
@@ -152,6 +151,10 @@ nav {
   }
 }
 
+.active {
+  transform: translateX(0%);
+}
+
 .body-container {
   height: 75%;
   width: 95%;
@@ -167,6 +170,7 @@ footer {
   display: flex;
   margin-top: auto;
   justify-content: center;
+  z-index: 2;
   p {
     font-size: .7rem;
   }

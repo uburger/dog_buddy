@@ -17,6 +17,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* FONT IMPORTED */
@@ -131,14 +132,8 @@ nav .icon-container .menu-icon img:hover {
 
 .side-menu {
   z-index: 2;
-}
-@media (min-width: 320px) {
-  .side-menu {
-    display: none;
-  }
-}
-
-.active {
+  transform: translateX(100%);
+  transition: 1s ease;
   position: absolute;
   right: 0px;
   height: 100vh;
@@ -150,47 +145,51 @@ nav .icon-container .menu-icon img:hover {
   justify-content: start;
 }
 @media (min-width: 991px) {
-  .active {
+  .side-menu {
     display: none;
   }
 }
-.active .icon-container {
+.side-menu .icon-container {
   margin-top: 10px;
   padding-right: 10px;
   align-self: flex-end;
 }
-.active .icon-container .menu-icon {
+.side-menu .icon-container .menu-icon {
   background: #56766d;
   border-radius: 30%;
 }
-.active .icon-container .menu-icon:hover {
+.side-menu .icon-container .menu-icon:hover {
   background: #455f57;
   transition: all 0.3s ease;
 }
-.active .icon-container .menu-icon:active {
+.side-menu .icon-container .menu-icon:active {
   background: #202c29;
 }
-.active .icon-container .menu-icon img {
+.side-menu .icon-container .menu-icon img {
   width: 50px;
   position: relative;
 }
 @media (min-width: 991px) {
-  .active .icon-container .menu-icon img {
+  .side-menu .icon-container .menu-icon img {
     display: none;
   }
 }
-.active .icon-container .menu-icon img:hover {
+.side-menu .icon-container .menu-icon img:hover {
   transform: rotate(360deg);
   transition-duration: 1s;
 }
-.active ul {
+.side-menu ul {
   margin-top: 25vw;
 }
-.active ul li {
+.side-menu ul li {
   margin: 50px;
 }
-.active ul li a {
+.side-menu ul li a {
   color: #e0d2d1;
+}
+
+.active {
+  transform: translateX(0%);
 }
 
 .body-container {
@@ -208,6 +207,7 @@ footer {
   display: flex;
   margin-top: auto;
   justify-content: center;
+  z-index: 2;
 }
 footer p {
   font-size: 0.7rem;
