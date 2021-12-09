@@ -10,9 +10,15 @@ window.addEventListener('DOMContentLoaded', () => {
     tileSize: 512,
     zoomOffset: -1,
     }).addTo(MAP);
-  // 
+  // Add icon
+  const DOG_ICON = L.icon({
+    iconUrl: '/images/hugo.png',
+    iconSize:     [60, 50], // size of the icon
+    iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+    popupAnchor:  [33, -10] // point from which the popup should open relative to the iconAnchor
+});
   // Add marker
-  const MARKER = L.marker([51.505, -0.09]).addTo(MAP);
+  const MARKER = L.marker([51.505, -0.09], {icon: DOG_ICON}).addTo(MAP);
   const updateButton = document.querySelector("#update-map")
   if(updateButton !== null) {
     updateButton.addEventListener('click', ()=>{
@@ -34,8 +40,8 @@ window.addEventListener('DOMContentLoaded', () => {
     MAP.setView(e.latlng);
     MARKER.setLatLng(e.latlng);
     const MEET = "<b>Let's meet for a walk!</b><br> "
-        MARKER.bindPopup(`${MEET} LAT: ${e.latlng.lat} LON: ${e.latlng.lng}`).openPopup();
-      }
+    MARKER.bindPopup(`${MEET} LAT: ${e.latlng.lat} LON: ${e.latlng.lng}`).openPopup();
+    }
   MAP.on('click', onMapClick);
 })
 
