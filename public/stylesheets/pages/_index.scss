@@ -1,4 +1,8 @@
 #map { 
   height: 100%;
   width: 100%;
+  min-width: 200px;
+  min-height: 100px;
+  max-width: 1200px;
+  margin: auto;
  }
