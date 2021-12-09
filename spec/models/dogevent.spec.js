@@ -1,7 +1,7 @@
 'use strict'
 
 const mongoose = require('mongoose');
-const DogEvent = require('../../models/dogevent');
+const DogEvent = require('../../models/dogEvent');
 
 require('../mongodb_helper')
 
