@@ -153,6 +153,11 @@ nav .icon-container .menu-icon img:hover {
   align-items: center;
   justify-content: start;
 }
+@media (min-width: 991px) {
+  .active {
+    display: none;
+  }
+}
 .active .icon-container {
   margin-top: 10px;
   padding-right: 10px;
@@ -168,11 +173,6 @@ nav .icon-container .menu-icon img:hover {
 }
 .active .icon-container .menu-icon:active {
   background: #202c29;
-}
-@media (min-width: 991px) {
-  .active .icon-container .menu-icon {
-    display: none;
-  }
 }
 .active .icon-container .menu-icon img {
   width: 50px;

@@ -108,6 +108,9 @@ nav {
 }
 
 .active {
+  @include media(">=smdt"){
+    display: none;
+  }
   position: absolute;
   right: 0px;
   height: 100vh;
@@ -124,9 +127,6 @@ nav {
     .menu-icon{
       @include button-bg($buttonColour);
       border-radius: 30%;
-      @include media(">=smdt"){
-        display: none;
-      }
       img {
         width: 50px;
         position: relative;
