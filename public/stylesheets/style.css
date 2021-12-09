@@ -43,10 +43,11 @@ nav {
   position: fixed;
   float: left;
   top: 0;
-  width: 100%;
+  width: 100vw;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
+  z-index: 2;
 }
 nav #brand {
   text-align: center;
@@ -130,6 +131,11 @@ nav .icon-container .menu-icon img:hover {
   width: 100%;
 }
 
+.space-div-bottom {
+  height: 150px;
+  width: 100%;
+}
+
 .side-menu {
   z-index: 2;
   transform: translateX(100%);
@@ -179,7 +185,7 @@ nav .icon-container .menu-icon img:hover {
   transition-duration: 1s;
 }
 .side-menu ul {
-  margin-top: 25vw;
+  margin-top: 10vw;
 }
 .side-menu ul li {
   margin: 50px;
@@ -194,20 +200,28 @@ nav .icon-container .menu-icon img:hover {
 
 .body-container {
   height: 75%;
-  width: 95%;
+  width: 100%;
   z-index: 1;
+}
+@media (min-width: 991px) {
+  .body-container {
+    margin: auto;
+  }
 }
 
 footer {
   height: 67px;
   overflow: hidden;
   background-color: #b5c9c3;
-  width: 100%;
+  width: 100vw;
   align-items: center;
   display: flex;
   margin-top: auto;
   justify-content: center;
   z-index: 2;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
 }
 footer p {
   font-size: 0.7rem;
@@ -216,4 +230,8 @@ footer p {
 #map {
   height: 100%;
   width: 100%;
+  min-width: 200px;
+  min-height: 100px;
+  max-width: 1200px;
+  margin: auto;
 }/*# sourceMappingURL=style.css.map */

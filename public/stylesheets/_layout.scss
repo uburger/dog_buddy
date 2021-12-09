@@ -29,10 +29,11 @@ nav {
   position: fixed;
   float: left;
   top: 0;
-  width: 100%;
+  width: 100vw;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
+  z-index: 2;
   #brand {
     text-align: center;
     @include media("<=tablet") {
@@ -101,10 +102,12 @@ nav {
   width: 100%;
 }
 
+.space-div-bottom {
+  height: 150px;
+  width: 100%;
+}
+
 .side-menu {
-  // @include media(">=phone"){
-  //   display: none;
-  // }
   z-index: 2;
   transform: translateX(100%);
   transition: 1s ease;
@@ -141,7 +144,7 @@ nav {
     }
   }
   ul {
-    margin-top: 25vw;
+    margin-top: 10vw;
     li {
       margin: 50px;
       a {
@@ -157,20 +160,26 @@ nav {
 
 .body-container {
   height: 75%;
-  width: 95%;
+  width: 100%;
   z-index: 1;
+  @include media(">=smdt"){
+    margin: auto;
+  }
 }
 
 footer {
   height: 67px;
   overflow: hidden;
   background-color: $primaryColour;
-  width: 100%;
+  width: 100vw;
   align-items: center;
   display: flex;
   margin-top: auto;
   justify-content: center;
   z-index: 2;
+  position: fixed;
+  left:0px;
+  bottom:0px;
   p {
     font-size: .7rem;
   }
