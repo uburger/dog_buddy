@@ -7,6 +7,12 @@ const logger = require('morgan');
 const mapRouter = require('./routes/map');
 const usersRouter = require('./routes/users');
 
+//Added for image upload?
+const bodyParser = require("body-parser"),
+const fs = require("fs"),
+const multer = require("multer"),
+const mongoose = require("mongoose");
+
 
 const app = express();
 
