@@ -7,13 +7,12 @@ var SessionsController = {
   },
 
   Create: function(req, res) {
-    console.log('trying to log in')
     var email = req.body.email;
     var password = req.body.password;
 
     User.findOne({email: email}).then(user => {
        
-        if (!user) return res.render("error_User")
+        if (!user) return res.redirect('/sessions/new');
    
         bcrypt.compare(password, user.password, (err, data) => {
             if (err) throw err
@@ -23,7 +22,7 @@ var SessionsController = {
               res.redirect('/map');
 
             } else {
-                return res.render("error_password")
+                return res.redirect("/sessions/new");
             }
 
         })
