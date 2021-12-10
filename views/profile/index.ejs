@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <div id='profilePicture' >
+        <form action="/uploadphoto" enctype="multipart/form-data" method="POST"> 
+            <label for="myfile">Upload profile photo:</label>
+            <input type="file" id="myfile" name="myImage" accept="image/*"><br><br>
+            <input type="submit" value="Upload Photo">
+          </form>    
+    </div>
+    <form id='petInfo'>
+        <input placeholder="Enter your dogs name" type="text" id="fname" name="fname"><br>
+        <input placeholder="Enter dogs breed" type="text" id="breed" name="breed"><br>
+        <input placeholder="Enter dogs age" type="text" id="age" name="age"><br>
+        <textarea name=“description” rows=“5” cols="30">Enter a short description</textarea>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

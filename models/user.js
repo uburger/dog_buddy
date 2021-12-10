@@ -7,7 +7,9 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
   email: { type: String, required: true, index: { unique: true } },
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  // added below line to enable image upload
+  img:{data:Buffer,contentType: String}
 });
 
 UserSchema.pre('save', function(next) {
@@ -26,6 +28,18 @@ UserSchema.pre('save', function(next) {
       });
   });
 });
+
+// set storage 
+  const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'uploads')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now())
+    }
+  })
+
+  const upload = multer({ storage: storage})
 
 UserSchema.methods.comparePassword = function(candidatePassword, cb) {
   bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
