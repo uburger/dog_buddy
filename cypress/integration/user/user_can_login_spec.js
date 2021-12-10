@@ -1,18 +1,13 @@
 'use strict'
 
+const testHelper = require("../../support/commands");
+
 // const testHelper = require('../../support/commands.js')
 
 describe('User logs in', function() {
   it('User is directed to map page when correct credentials entered', function() {
-    cy.visit('/users/new');
-    cy.get('#new-user-form').find('[type="email"]').type('4321@4321.com');
-    cy.get('#new-user-form').find('[type="password"]').type('MY_very_securePWD123!');
-    cy.get('#new-user-form').submit();
-    
-    cy.visit('/sessions/new');
-    cy.get('#new-session-form').find('[type="email"]').type('4321@4321.com');
-    cy.get('#new-session-form').find('[type="password"]').type('MY_very_securePWD123!');
-    cy.get('#new-session-form').submit();
+    testHelper.signUpTestUser('4321@4321.com', 'MY_very_securePWD123!');
+    testHelper.loginTestUser('4321@4321.com', 'MY_very_securePWD123!');
 
     cy.get('#title').should('contain', 'Map');
   });
