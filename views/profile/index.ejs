@@ -4,24 +4,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/profile.css' />
     <title>Profile</title>
 </head>
 <body>
-    <div id='profilePicture' >
-        <form action="/action_page.php">
-            <label for="myfile">Upload profile photo:</label>
-            <input type="file" id="myfile" name="myfile"><br><br>
-            <input type="submit" value="Submit">
-          </form>    
+    <div class="container db-social">
+    <div class="jumbotron jumbotron-fluid"></div>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xl-11">
+                <div class="widget head-profile has-shadow">
+                    <div class="widget-body pb-0">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-xl-4 col-md-4 d-flex justify-content-lg-start justify-content-md-start justify-content-center">
+                                <ul>
+                                    <!-- upload image function -->
+                                    <div id='profilePicture' >
+                                        <form action="/profile" method="post">
+                                            <label for="myfile">Upload profile photo:</label>
+                                            <input type="file" id="myfile" name="myfile"><br><br>
+                                          </form>    
+                                    </div>
+                                    <li>
+                                        <div class="counter">56</div>
+                                        <div class="heading">Friends</div>
+                                    </li>
+                                    <li>
+                                        <div class="counter">3</div>
+                                        <div class="heading"><a href="/">Upcoming Meetups</a></div> 
+                                        <!-- This can link to the map/event page? -->
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-xl-4 col-md-4 d-flex justify-content-center">
+                                <!-- profile picture -->
+                                <div class="image-default">
+                                    <img class="rounded-circle" src="https://vetstreet-brightspot.s3.amazonaws.com/19/716f20a7f711e0a0d50050568d634f/file/Pomeranian-2-645mk062811.jpg" alt="...">
+                                </div>
+                                <div class="infos">
+                                    <h2>Fluffy</h2>
+                                    <div class="location">London, UK.</div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-4 d-flex justify-content-lg-end justify-content-md-end justify-content-center">
+                                <div class="follow">
+                                    <!-- Add friend button -->
+                                    <button onclick="myFunction()" class="btn btn-shadow" href="#"><i class="la la-user-plus"></i>Add Friend</button>
+                                    <p id="friend request message"></p>
+                                    <div class="actions dark">
+                                        <div class="dropdown">
+                                            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">
+                                                <i class="la la-ellipsis-h"></i>
+                                            </button>
+                                            <div class="dropdown-menu" x-placement="bottom-start" style="display: none; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 35px, 0px);">
+                                                <a href="#" class="dropdown-item">
+                                                Report
+                                                </a>
+                                                <a href="#" class="dropdown-item">
+                                                Block
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+<!-- About info form  -->
+<div class="aboutInfo">
+    <h2>About Me</h2>
     <form id='petInfo'>
         <input placeholder="Enter your dogs name" type="text" id="fname" name="fname"><br>
         <input placeholder="Enter dogs breed" type="text" id="breed" name="breed"><br>
         <input placeholder="Enter dogs age" type="text" id="age" name="age"><br>
-        <textarea name=“description” rows=“5” cols="30">Enter a short description</textarea>
+        <textarea name=“description” rows=“5” cols="30" placeholder="Enter a description"></textarea>
         <input type="submit" value="Submit">
     </form>
+</div>
+    <!-- JS files links -->
+    <script src="/javascripts/profile.js"></script>
 </body>
 </html>
+
 
 
