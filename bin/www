@@ -1,40 +1,37 @@
-#!/usr/bin/env node
-
 /**
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('dog-buddy:server');
-var http = require('http');
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt'); 
-
+const app = require('../app');
+const debug = require('debug')('dog-buddy:server');
+const mongoose = require('mongoose');
+const http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
+
+/**
+ * Connect to MongoDB
+ **/
+
+ const mongoDbUrl = process.env.MONGODB_URL || 'mongodb://localhost/pppp';
+ mongoose.connect(mongoDbUrl, {
+   useNewUrlParser: true,
+   useUnifiedTopology: true
+ });
+
+ const db = mongoose.connection;
+ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 /**
  * Create HTTP server.
  */
 
 var server = http.createServer(app);
-
-/**
- * Connect to MongoDB
- **/
-
- var mongoDbUrl = process.env.MONGODB_URL || 'mongodb://localhost/PPPP';
- mongoose.connect(mongoDbUrl, {
-   useNewUrlParser: true,
-   useUnifiedTopology: true
- });
- var db = mongoose.connection;
- db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 /**
  * Listen on provided port, on all network interfaces.
