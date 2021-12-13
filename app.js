@@ -9,8 +9,10 @@ const methodOverride = require('method-override')
 
 const mapRouter = require('./routes/map');
 const usersRouter = require('./routes/users');
-const sessionsRouter = require('./routes/sessions');
 
+const profileRouter = require('./routes/profile');
+// const uploadPhotoRouter = require('./routes/uploadphoto');
+const sessionsRouter = require('./routes/sessions');
 
 const app = express();
 
@@ -58,8 +60,10 @@ const sessionChecker = (req, res, next) => {
 app.use('/', mapRouter);
 app.use('/map', sessionChecker, mapRouter);
 app.use('/users', usersRouter);
-app.use('/sessions', sessionsRouter);
 
+app.use('/profile', profileRouter);
+// app.use('/uploadphoto', uploadPhotoRouter);
+app.use('/sessions', sessionsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
