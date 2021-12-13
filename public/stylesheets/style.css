@@ -228,10 +228,11 @@ footer p {
 }
 
 #map {
-  height: 100%;
+  height: 80%;
   width: 100%;
   min-width: 200px;
   min-height: 100px;
   max-width: 1200px;
   margin: auto;
 }/*# sourceMappingURL=style.css.map */
+
