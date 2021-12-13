@@ -1,3 +1,4 @@
+'use strict';
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -23,3 +24,20 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+const testHelper = { 
+  signUpTestUser: (username, password) => {
+    cy.visit('/users/new');
+    cy.get('#new-user-form').find('[type="email"]').type(username);
+    cy.get('#new-user-form').find('[type="password"]').type(password);
+    cy.get('#new-user-form').submit();
+  },
+  loginTestUser: (username, password) => {
+    cy.visit('/sessions/new');
+    cy.get('#new-session-form').find('[type="email"]').type(username);
+    cy.get('#new-session-form').find('[type="password"]').type(password);
+    cy.get('#new-session-form').submit();
+  },
+}
+
+if(typeof process === 'object') module.exports = testHelper;
