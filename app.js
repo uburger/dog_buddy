@@ -6,6 +6,7 @@ const logger = require('morgan');
 
 const mapRouter = require('./routes/map');
 const usersRouter = require('./routes/users');
+const dogeventRouter = require('./routes/dogevent');
 
 
 const app = express();
@@ -26,6 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', mapRouter);
 app.use('/map', mapRouter);
 app.use('/users', usersRouter);
+app.use('/dogevent', dogeventRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
