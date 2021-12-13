@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+@import url("https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -227,11 +228,29 @@ footer p {
   font-size: 0.7rem;
 }
 
-#map {
-  height: 100%;
-  width: 100%;
-  min-width: 200px;
-  min-height: 100px;
-  max-width: 1200px;
-  margin: auto;
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 2%;
+}
+@media (max-width: 991px) {
+  .logo-container {
+    padding-top: 10%;
+  }
+}
+
+.logo-text {
+  font-size: 50px;
+  color: #56766d;
+  font-family: "Bowlby One", cursive;
+  letter-spacing: 1.2rem;
+}
+
+#logo {
+  width: 40%;
+  max-width: 363px;
+  min-width: 265px;
+  position: inherit;
 }/*# sourceMappingURL=style.css.map */

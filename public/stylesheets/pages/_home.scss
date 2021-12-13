@@ -1,0 +1,24 @@
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 2%;
+  @include media('<=smdt') {
+    padding-top: 10%;
+  }
+}
+
+.logo-text {
+  font-size: 50px;
+  color: $buttonColour;
+  font-family: 'Bowlby One', cursive;
+  letter-spacing: 1.2rem;
+}
+
+#logo {
+  width: 40%;
+  max-width: 363px;
+  min-width: 265px;
+  position: inherit;
+}
