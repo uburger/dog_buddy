@@ -6,7 +6,7 @@ const DogEventsController = {
   Create: function(req, res) {
     const dogevent = new DogEvent({
       eventLat: req.body.markerLat,
-      eventLon: req.body.markerLon, 
+      eventLon: req.body.markerLon 
       });
     dogevent.save(function(err) {
       if (err) { throw err; }
