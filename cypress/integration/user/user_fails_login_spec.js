@@ -7,14 +7,14 @@ describe('Loggin fails', function() {
     testHelper.signUpTestUser('123@123.com', 'MY_very_securePWD123!')
     testHelper.loginTestUser('456@123.com', 'MY_very_securePWD123!')
 
-    cy.get('#title').should('contain', 'Log into Paw Pals');
+    cy.get('#title2').should('contain', 'Log into Paw Pals');
   });
 
   it('when password is wrong', function() { 
     testHelper.signUpTestUser('456@123.com', 'MY_very_securePWD123!')
     testHelper.loginTestUser('456@123.com', 'Whoops_wrong_PWD123!')
 
-    cy.get('#title').should('contain', 'Log into Paw Pals');
+    cy.get('#title2').should('contain', 'Log into Paw Pals');
 
   });
 });

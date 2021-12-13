@@ -5,4 +5,5 @@ const MapController = require('../controllers/map');
 /* GET home page. */
 router.get('/', MapController.Map);
 
+
 module.exports = router;
