@@ -1,6 +1,6 @@
 const MapController = {
     Map: function(req, res) {
-      res.render('index', { title: 'Express' });
+      res.render('./map/map', {user: req.session.user});
     }
   };
   
