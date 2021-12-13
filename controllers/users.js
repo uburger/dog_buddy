@@ -11,7 +11,6 @@ const UsersController = {
       let img = fs.readFileSync(__dirname + '/../public/images/paw.png')
       const encodedimage = img.toString('base64')
       req.body.filename = 'default image'
-      console.log(img)
       req.body.contentType = 'image/jpeg'
       req.body.imageBase64 = encodedimage
 
