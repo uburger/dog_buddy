@@ -9,6 +9,7 @@ const methodOverride = require('method-override')
 
 const mapRouter = require('./routes/map');
 const usersRouter = require('./routes/users');
+const dogeventRouter = require('./routes/dogevent');
 
 const profileRouter = require('./routes/profile');
 // const uploadPhotoRouter = require('./routes/uploadphoto');
@@ -60,6 +61,8 @@ const sessionChecker = (req, res, next) => {
 app.use('/', mapRouter);
 app.use('/map', sessionChecker, mapRouter);
 app.use('/users', usersRouter);
+app.use('/dogevent', dogeventRouter);
+
 
 app.use('/profile', profileRouter);
 // app.use('/uploadphoto', uploadPhotoRouter);
