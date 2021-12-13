@@ -3,7 +3,6 @@
 const bcrypt = require('bcrypt');
 const SALT_WORK_FACTOR = 10;
 const mongoose = require('mongoose');
-const { nodeModuleNameResolver } = require('typescript');
 const Schema = mongoose.Schema;
 
 

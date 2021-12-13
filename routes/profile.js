@@ -3,7 +3,8 @@ const router = express.Router();
 
 const ProfileController = require('../controllers/profile');
 const store = require('../middleware/multer');
-
+//
+// eslint-disable-next-line no-unused-vars
 router.get('/', function(req, res, next) {
     res.render('./profile/index', { title: 'Express' });
   });

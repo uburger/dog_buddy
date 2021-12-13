@@ -13,5 +13,5 @@ var storage = multer.diskStorage({
     cb(null,file.fieldname + '-' + Date.now() + ext)
   } 
 })
-
-module.exports = store = multer({ storage: storage })
+const store = multer({ storage: storage })
+module.exports = store
