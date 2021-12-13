@@ -6,13 +6,8 @@ const logger = require('morgan');
 
 const mapRouter = require('./routes/map');
 const usersRouter = require('./routes/users');
-
-//Added for image upload?
-const bodyParser = require("body-parser"),
-const fs = require("fs"),
-const multer = require("multer"),
-const mongoose = require("mongoose");
-
+const profileRouter = require('./routes/profile');
+// const uploadPhotoRouter = require('./routes/uploadphoto');
 
 const app = express();
 
@@ -32,6 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', mapRouter);
 app.use('/map', mapRouter);
 app.use('/users', usersRouter);
+app.use('/profile', profileRouter);
+// app.use('/uploadphoto', uploadPhotoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

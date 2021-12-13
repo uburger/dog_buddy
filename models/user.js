@@ -3,18 +3,22 @@
 const bcrypt = require('bcrypt');
 const SALT_WORK_FACTOR = 10;
 const mongoose = require('mongoose');
+const { nodeModuleNameResolver } = require('typescript');
 const Schema = mongoose.Schema;
+
 
 const UserSchema = new Schema({
   email: { type: String, required: true, index: { unique: true } },
   password: { type: String, required: true },
-  // added below line to enable image upload
-  img:{data:Buffer,contentType: String}
+
+  filename:{ type:String, required:true },
+  contentType:{ type:String, required:true },
+  imageBase64:{ type:String, required:true }
 });
 
 UserSchema.pre('save', function(next) {
   const user = this;
-  
+
   // generate a salt
   bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
       if (err) return next(err);
@@ -29,18 +33,6 @@ UserSchema.pre('save', function(next) {
   });
 });
 
-// set storage 
-  const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, 'uploads')
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now())
-    }
-  })
-
-  const upload = multer({ storage: storage})
-
 UserSchema.methods.comparePassword = function(candidatePassword, cb) {
   bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
       if (err) return cb(err);
@@ -51,3 +43,4 @@ UserSchema.methods.comparePassword = function(candidatePassword, cb) {
 const User = mongoose.model('User', UserSchema);
 
 module.exports = User;
+
