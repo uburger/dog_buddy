@@ -39,6 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
     })
   }
   function onMapClick(e) {
+   
     MAP.setView(e.latlng);
     MARKER.setLatLng(e.latlng);
     const MEET = "<b>Let's meet for a walk!</b><br> "
@@ -46,7 +47,18 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('markerLat').value = e.latlng.lat;
     document.getElementById('markerLon').value = e.latlng.lng;
     }
+  
   MAP.on('click', onMapClick);
 
+  function onMapContext(e) {
+    const EVENTMARKER = L.marker([e.latlng.lat, e.latlng.lng],).addTo(MAP);
+    MAP.setView(e.latlng);
+    EVENTMARKER.setLatLng(e.latlng);
+    const DOGEVENT = "<b>Let's create an Event!</b><br> "
+    EVENTMARKER.bindPopup(`${DOGEVENT} LAT: ${e.latlng.lat} LON: ${e.latlng.lng}`).openPopup();
+    document.getElementById('markerLat').value = e.latlng.lat;
+    document.getElementById('markerLon').value = e.latlng.lng;
+  }
+  MAP.on('contextmenu', onMapContext);
 })
 
