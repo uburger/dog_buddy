@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // const leafletMap = require('leaflet-map') 
   // Create and load the map
   /*global L*/
+  
   const MAP = L.map('map').setView([51.505, -0.09], 13);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -10,6 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
     tileSize: 512,
     zoomOffset: -1,
     }).addTo(MAP);
+    MAP.locate({setView: true, maxZoom: 16});
   // Add icon
   const DOG_ICON = L.icon({
     iconUrl: '/images/hugo.png',
@@ -38,6 +40,15 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     })
   }
+  function onLocationFound(e) {
+   var radius = e.accuracy;
+
+    MARKER.setLatLng(e.latlng);
+    L.circle(e.latlng, radius).addTo(MAP);
+}
+
+MAP.on('locationfound', onLocationFound);
+
   function onMapClick(e) {
    
     MAP.setView(e.latlng);
@@ -54,11 +65,26 @@ window.addEventListener('DOMContentLoaded', () => {
     const EVENTMARKER = L.marker([e.latlng.lat, e.latlng.lng],).addTo(MAP);
     MAP.setView(e.latlng);
     EVENTMARKER.setLatLng(e.latlng);
-    const DOGEVENT = "<b>Let's create an Event!</b><br> "
+    const DOGEVENT = '<form role="form" id="form" enctype="multipart/form-data" class = "form-horizontal" onsubmit="addMarker()">'+
+    '<div class="form-group">'+
+        '<label class="control-label col-sm-5"><strong>Date: </strong></label>'+
+        '<input type="date" placeholder="Required" id="date" name="date" class="form-control"/>'+ 
+    '</div>'+
+    
+    '<div class="form-group">'+
+        '<label class="control-label col-sm-5"><strong>Description: </strong></label>'+
+        '<textarea class="form-control" rows="6" id="descrip" name="descript">...</textarea>'+
+    '</div>'+
+    '<input style="display: none;" type="text" id="lat" name="lat" value="'+e.latlng.lat+'" />'+
+    '<input style="display: none;" type="text" id="lng" name="lng" value="'+e.latlng.lng+'" />'+
+    '<div class="form-group">'+
+      '<div style="text-align:center;" class="col-xs-4 col-xs-offset-2"><button type="button" class="btn">Cancel</button></div>'+
+      '<div style="text-align:center;" class="col-xs-4"><button type="submit" value="submit" class="btn btn-primary trigger-submit">Submit</button></div>'+
+    '</div>'+
+    '</form>';
     EVENTMARKER.bindPopup(`${DOGEVENT} LAT: ${e.latlng.lat} LON: ${e.latlng.lng}`).openPopup();
     document.getElementById('markerLat').value = e.latlng.lat;
     document.getElementById('markerLon').value = e.latlng.lng;
   }
   MAP.on('contextmenu', onMapContext);
 })
-
