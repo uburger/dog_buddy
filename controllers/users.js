@@ -1,8 +1,9 @@
 const User = require('../models/user')
+const activeUser = false;
 
 const UsersController = {
   New: function(req, res) {
-    res.render('users/new');
+    res.render('users/new', { title: 'Sign-In', loggedIn: activeUser });
   },
   Create: function(req, res) {
     var user = new User(req.body);
