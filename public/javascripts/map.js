@@ -49,42 +49,44 @@ window.addEventListener('DOMContentLoaded', () => {
 
 MAP.on('locationfound', onLocationFound);
 
-  function onMapClick(e) {
+  // function onMapClick(e) {
    
+  //   MAP.setView(e.latlng);
+  //   MARKER.setLatLng(e.latlng);
+  //   const MEET = "<b>Let's meet for a walk!</b><br> "
+  //   MARKER.bindPopup(`${MEET} LAT: ${e.latlng.lat} LON: ${e.latlng.lng}`).openPopup();
+  //   document.getElementById('markerLat').value = e.latlng.lat;
+  //   document.getElementById('markerLon').value = e.latlng.lng;
+  //   }
+  
+  // MAP.on('click', onMapClick);
+
+  function onMapClick(e) {
     MAP.setView(e.latlng);
     MARKER.setLatLng(e.latlng);
-    const MEET = "<b>Let's meet for a walk!</b><br> "
-    MARKER.bindPopup(`${MEET} LAT: ${e.latlng.lat} LON: ${e.latlng.lng}`).openPopup();
-    document.getElementById('markerLat').value = e.latlng.lat;
-    document.getElementById('markerLon').value = e.latlng.lng;
-    }
-  
-  MAP.on('click', onMapClick);
-
-  function onMapContext(e) {
-    const EVENTMARKER = L.marker([e.latlng.lat, e.latlng.lng],).addTo(MAP);
-    MAP.setView(e.latlng);
-    EVENTMARKER.setLatLng(e.latlng);
-    const DOGEVENT = '<form role="form" id="form" enctype="multipart/form-data" class = "form-horizontal" onsubmit="addMarker()">'+
+    const DOGEVENT = '<form action="/dogevent" method="POST" role="form" id="form" class = "form-horizontal">'+
+    '<div class="form-group">'+ 
+    '<textarea class="form-control" rows="1" id="headline" name="headline">...</textarea>'+
     '<div class="form-group">'+
         '<label class="control-label col-sm-5"><strong>Date: </strong></label>'+
         '<input type="date" placeholder="Required" id="date" name="date" class="form-control"/>'+ 
+        '<input type="time" id="time" name="time" required>'+
     '</div>'+
     
     '<div class="form-group">'+
         '<label class="control-label col-sm-5"><strong>Description: </strong></label>'+
-        '<textarea class="form-control" rows="6" id="descrip" name="descript">...</textarea>'+
+        '<textarea class="form-control" rows="6" id="descript" name="descript">...</textarea>'+
     '</div>'+
-    '<input style="display: none;" type="text" id="lat" name="lat" value="'+e.latlng.lat+'" />'+
-    '<input style="display: none;" type="text" id="lng" name="lng" value="'+e.latlng.lng+'" />'+
+    '<input style="display: none;" type="text" id="lat" name="markerLat" value="'+e.latlng.lat+'" />'+
+    '<input style="display: none;" type="text" id="lng" name="markerLon" value="'+e.latlng.lng+'" />'+
     '<div class="form-group">'+
       '<div style="text-align:center;" class="col-xs-4 col-xs-offset-2"><button type="button" class="btn">Cancel</button></div>'+
       '<div style="text-align:center;" class="col-xs-4"><button type="submit" value="submit" class="btn btn-primary trigger-submit">Submit</button></div>'+
     '</div>'+
     '</form>';
-    EVENTMARKER.bindPopup(`${DOGEVENT} LAT: ${e.latlng.lat} LON: ${e.latlng.lng}`).openPopup();
+    MARKER.bindPopup(`${DOGEVENT} LAT: ${e.latlng.lat} LON: ${e.latlng.lng}`).openPopup();
     document.getElementById('markerLat').value = e.latlng.lat;
     document.getElementById('markerLon').value = e.latlng.lng;
   }
-  MAP.on('contextmenu', onMapContext);
+  MAP.on('click', onMapClick);
 })

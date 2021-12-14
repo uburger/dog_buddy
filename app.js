@@ -61,7 +61,7 @@ const sessionChecker = (req, res, next) => {
 app.use('/', mapRouter);
 app.use('/map', sessionChecker, mapRouter);
 app.use('/users', usersRouter);
-app.use('/dogevent', dogeventRouter);
+app.use('/dogevent',sessionChecker, dogeventRouter);
 
 
 app.use('/profile', profileRouter);
