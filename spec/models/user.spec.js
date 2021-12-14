@@ -6,6 +6,7 @@ const User = require('../../models/user');
 require('../mongodb_helper');
 
 describe('User model', function() {
+
   beforeEach(function(done) {
     mongoose.connection.collections.users.drop(function() {
         done();
@@ -17,9 +18,10 @@ describe('User model', function() {
     expect(user.email).toEqual('test@test.com');
     expect(user.password).toEqual('MY_very_securePWD123!');
   });
-
+  
   it('Can test if an encrypted password matches', function(done) {
-    const user = new User({ email: 'happy@test.com', password: 'MY_very_securePWD123!' });
+    const user = new User({ email: 'happy@test.com', password: 'MY_very_securePWD123!', filename: '123',
+    contentType:'235', imageBase64:'125'});
     user.save(function(err) {
       expect(err).toBeNull();
       User.find({ email: 'happy@test.com' }, function(err, user) {

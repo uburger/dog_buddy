@@ -1,3 +1,4 @@
+<h1 id="title">Map</h1>
 <div id="coordinateInput">
   <button id=update-map>Update View</button>
   <input type="text" name="lat" id="lat">
@@ -6,3 +7,9 @@
 <div id="map">
   <script src="javascripts/map.js"></script>
 </div>
+
+<form id="hiddenInput" action="/dogevent" method="post">
+  <input type="submit" id="saveLocation" value="Submit">
+  <input type="hidden" name="markerLat" id="markerLat" value="">
+  <input type="hidden" name="markerLon" id="markerLon" value="">
+</form>
