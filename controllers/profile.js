@@ -1,7 +1,8 @@
-// var Profile = require('../models/user'); 
+// var Profile = require('../models/user');
+
 var ProfileController = {
   Index: function(req, res) {
-      res.render('./profile/index'); 
+      res.render('./profile/index', { title: "Profile", loggedIn: false }); 
   },
   
   Uploads: function(req,res,next) {

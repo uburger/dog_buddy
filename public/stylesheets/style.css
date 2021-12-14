@@ -62,36 +62,45 @@ nav #brand {
     display: none;
   }
 }
-nav ul {
+nav ul form {
   text-align: right;
   list-style-type: none;
   list-style-type: none;
   margin: 0;
 }
 @media (max-width: 991px) {
-  nav ul {
+  nav ul form {
     display: none;
   }
 }
-nav ul li {
+nav ul form .nav-link {
   vertical-align: middle;
   display: inline;
   font-family: "Fira Sans", sans-serif;
   font-size: 1rem;
 }
-nav ul li a {
+nav ul form .nav-link a {
   color: #f2f2f2;
   text-decoration: none;
-  padding: 30px;
-}
-nav ul li a #logout {
-  color: inherit;
   background-color: inherit;
   border: none;
   font-size: inherit;
+  padding: 26px;
 }
-nav ul li a:hover {
+nav ul form .nav-link a:hover {
   background-color: #56766d;
+  cursor: pointer;
+}
+nav ul form .nav-link #logout {
+  color: #f2f2f2;
+  background-color: inherit;
+  border: none;
+  font-size: inherit;
+  padding: 23px;
+}
+nav ul form .nav-link #logout:hover {
+  background-color: #56766d;
+  cursor: pointer;
 }
 nav .icon-container {
   display: flex;

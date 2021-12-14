@@ -28,13 +28,17 @@
         <div class="nav-menu">
           <% if (loggedIn) { %>
           <ul>
-            <li><a href='/map/map'>Map</a></li>
-            <li><a href='/profile'>Profile</a></li>
-            <li><a href='#'><input id="logout" type="submit" value="Logout"></a></li>
-          </ul>
+            <form action="/sessions?_method=DELETE" method="POST">
+              <li class="nav-link"><a href='/map'>Map</a></li>
+              <li class="nav-link"><a href='/profile/index'>Profile</a></li>
+              <li class="nav-link"><input id="logout" type="submit" value="Logout"></li>
+            </form>
+            </ul>
           <% } else { %>
-            <a class="" id="sign-up" href="/users/new">Sign Up</a>
-            <a class="" id="sign-in" href="/sessions/new">Sign In</a>
+            <ul>
+              <li><a id="sign-up" href="/users/new">Sign Up</a></li>
+              <li><a id="sign-in" href="/sessions/new">Sign In</a></li>
+            </ul>
           <% } %>
           <div class="icon-container">
             <button class="menu-icon"><img src="/images/paw.png" alt=""></button>
