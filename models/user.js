@@ -11,7 +11,12 @@ const UserSchema = new Schema({
   password: { type: String, required: true },
   filename:{ type:String, required:true },
   contentType:{ type:String, required:true },
-  imageBase64:{ type:String, required:true }
+  imageBase64:{ type:String, required:true },
+  
+  name:{ type:String, required:false },
+  breed:{ type:String, required:false },
+  age:{ type:Number, required:false },
+  bio:{ type:String, required:false }
 });
 
 UserSchema.pre('save', function(next) {

@@ -12,4 +12,6 @@ router.post('/uploadphoto',
   ProfileController.Uploads
   )
 
+  router.post('/bio', ProfileController.UpdateBio)
+
 module.exports = router;
