@@ -6,8 +6,8 @@ const testHelper = require("../../support/commands");
 
 describe('A user can see a map', function() {
     it('has a map', function() {
-      testHelper.signUpTestUser('4321@4321.com', 'MY_very_securePWD123!');
-      testHelper.loginTestUser('4321@4321.com', 'MY_very_securePWD123!');
+      testHelper.signUpTestUser('4321@432.com', 'MY_very_securePWD123!');
+      testHelper.loginTestUser('4321@432.com', 'MY_very_securePWD123!');
       
       cy.get('#map').should('be.visible'); 
     });
