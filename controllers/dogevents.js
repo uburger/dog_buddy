@@ -19,7 +19,9 @@ const DogEventsController = {
 
       res.status(201).redirect('/map');
     });
-  }
+  },
+
+  
 };
 
 module.exports = DogEventsController;
