@@ -11,11 +11,13 @@ const mapRouter = require('./routes/map');
 const usersRouter = require('./routes/users');
 const dogeventRouter = require('./routes/dogevent');
 
+
 const profileRouter = require('./routes/profile');
 // const uploadPhotoRouter = require('./routes/uploadphoto');
 const sessionsRouter = require('./routes/sessions');
 
 const app = express();
+
 
 const expressLayouts = require('express-ejs-layouts');
 
@@ -82,5 +84,6 @@ app.use(function(err, req, res, _next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;
