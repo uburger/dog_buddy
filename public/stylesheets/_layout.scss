@@ -53,7 +53,8 @@ nav {
     @include media("<=smdt") {
       display: none;
     }
-    li {
+    // Below is for navbar styling when logged out
+    .nav-link {
       vertical-align: middle;
       display: inline;
       font-family: "Fira Sans", sans-serif;
@@ -61,9 +62,52 @@ nav {
       a {
         color: #f2f2f2;
         text-decoration: none;
-        padding: 30px;
+        background-color: inherit;
+        border: none;
+        font-size: inherit;
+        padding: 26px;
         &:hover {
           background-color: $buttonColour;
+          cursor: pointer;
+        }
+      }
+    }
+    // Below is for the nav bar styling when logged in
+    form {
+      text-align: right;
+      list-style-type: none;
+      list-style-type: none;
+      margin: 0;
+      @include media("<=smdt") {
+        display: none;
+      }
+      .nav-link {
+        vertical-align: middle;
+        display: inline;
+        font-family: "Fira Sans", sans-serif;
+        font-size: 1rem;
+        a {
+          color: #f2f2f2;
+          text-decoration: none;
+          background-color: inherit;
+          border: none;
+          font-size: inherit;
+          padding: 26px;
+          &:hover {
+            background-color: $buttonColour;
+            cursor: pointer;
+          }
+        }
+        #logout {
+          color: #f2f2f2;;
+          background-color: inherit;
+          border: none;
+          font-size: inherit;
+          padding: 23px;
+          &:hover {
+            background-color: $buttonColour;
+            cursor: pointer;
+          }
         }
       }
     }
