@@ -8,7 +8,6 @@ var ProfileController = {
   },
   
   Uploads: function(req,res,next) {
-    console.log(req.file)
     const file = req.file; 
   
     if(!file){
@@ -31,7 +30,5 @@ var ProfileController = {
   })
   }
 };
-
-
 
 module.exports = ProfileController; 
