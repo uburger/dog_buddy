@@ -17,16 +17,20 @@ const UsersController = {
     var email = req.body.email;
 
     User.findOne({email: email}).then(user => { 
-      if (!user) {  
-        var newUser = new User(req.body);
-        newUser.save(function(err) {
-          if (err) { 
-            throw err; 
-          }
-          res.status(201).redirect('/sessions/new');
-        });
+      if (email !== null && email !== '') {  
+        if (!user){
+          var newUser = new User(req.body);
+          newUser.save(function(err) {
+            if (err) { 
+              throw err; 
+            }
+            res.status(201).redirect('/sessions/new');
+          });
+        } else {
+          res.redirect('/users/new?error=' + encodeURIComponent('Already_Exists'));
+        }
       } else {
-        res.redirect('/users/new?error=' + encodeURIComponent('Already_Exists'));
+        res.redirect('/users/new?error=' + encodeURIComponent('Enter_Email'));
       }
     })
   },
