@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Paw Pals Messenger</title>
+    <title>Simple Group Chat on Node.js</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font: 13px Helvetica, Arial; }
@@ -38,7 +38,7 @@
                 $('#messages').append($('<li>').html(username));
             });
             // ask username
-            var username = prompt('Please tell me your name');
+            var username = prompt('Please tell me your username');
             socket.emit('username', username);
     </script>
   </body>
