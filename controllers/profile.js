@@ -25,10 +25,11 @@ var ProfileController = {
     contentType: file.mimetype,
     imageBase64: encodedImage
   }
-  User.findOneAndUpdate(filter, update, { new: true }, (err, updatedUser)=>{
+  User.findOneAndUpdate(filter, update, { new: true, loggedIn: true }, (err, updatedUser)=>{
     if(err) { throw err }
     req.session.user = updatedUser
     res.status(201).redirect('/map');
+    res.status(201).redirect('/profile');
   })
   }
 };
