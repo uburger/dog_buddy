@@ -22,7 +22,7 @@ var SessionsController = {
               res.redirect('/map');
 
             } else {
-                return res.redirect("/sessions/new");
+              res.redirect('/sessions/new?error=' + encodeURIComponent('Password_Username_Incorrect'));
             }
 
         })
