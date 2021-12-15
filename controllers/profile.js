@@ -9,7 +9,7 @@ const fs = require("fs")
 
 var ProfileController = {
   Index: function(req, res) {
-      res.render('./profile/index', { title: "Profile", loggedIn: false }); 
+      res.render('./profile', { title: "Profile", loggedIn: true }); 
   },
   
   Uploads: function(req,res,next) {
