@@ -42,8 +42,6 @@ window.addEventListener('DOMContentLoaded', () => {
         LON_ENTRY.value = "";
         const MEET = "<b>Let's meet for a walk!</b><br> "
         MARKER.bindPopup(`${MEET} LAT: ${NEW_LAT} LON: ${NEW_LON}`).openPopup();
-        document.getElementById('markerLat').value = NEW_LAT;
-        document.getElementById('markerLon').value = NEW_LON;
       }
     })
   }
@@ -85,8 +83,6 @@ window.addEventListener('DOMContentLoaded', () => {
     '</div>'+
     '</form>';
     MARKER.bindPopup(`${DOGEVENT} LAT: ${e.latlng.lat} LON: ${e.latlng.lng}`).openPopup();
-    document.getElementById('markerLat').value = e.latlng.lat;
-    document.getElementById('markerLon').value = e.latlng.lng;
   }
   MAP.on('click', onMapClick);
 })
