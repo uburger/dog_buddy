@@ -29,6 +29,7 @@ var ProfileController = {
     if(err) { throw err }
     req.session.user = updatedUser
     res.status(201).redirect('/map');
+    res.status(201).redirect('/profile');
   })
   }
 };
