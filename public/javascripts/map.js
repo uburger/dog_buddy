@@ -18,10 +18,17 @@ window.addEventListener('DOMContentLoaded', () => {
     iconSize:     [60, 50], // size of the icon
     iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
     popupAnchor:  [33, -10] // point from which the popup should open relative to the iconAnchor
-});
+  });
   // Add marker
   const MARKER = L.marker([51.505, -0.09], {icon: DOG_ICON}).addTo(MAP);
   const updateButton = document.querySelector("#update-map")
+  // Show events
+  /*global dogevents*/
+    dogevents.forEach((dogevent) => {
+    // eslint-disable-next-line no-unused-vars
+    const EVENT_MARKER = L.marker([dogevent.eventLat, dogevent.eventLon], {icon: DOG_ICON}).addTo(MAP);
+    })
+  // Update Button Code
   if(updateButton !== null) {
     updateButton.addEventListener('click', ()=>{
       const LAT_ENTRY = document.querySelector("#lat");
@@ -45,21 +52,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
     MARKER.setLatLng(e.latlng);
     L.circle(e.latlng, radius).addTo(MAP);
-}
-
-MAP.on('locationfound', onLocationFound);
-
-  // function onMapClick(e) {
-   
-  //   MAP.setView(e.latlng);
-  //   MARKER.setLatLng(e.latlng);
-  //   const MEET = "<b>Let's meet for a walk!</b><br> "
-  //   MARKER.bindPopup(`${MEET} LAT: ${e.latlng.lat} LON: ${e.latlng.lng}`).openPopup();
-  //   document.getElementById('markerLat').value = e.latlng.lat;
-  //   document.getElementById('markerLon').value = e.latlng.lng;
-  //   }
-  
-  // MAP.on('click', onMapClick);
+  }
+  MAP.on('locationfound', onLocationFound);
+  // const showEvents = function(dogevents) {
+  //   dogevents.forEach((dogevent) => {
+  //     // eslint-disable-next-line no-unused-vars
+  //     const EVENT_MARKER = L.marker([dogevent.eventLat, dogevent.eventLon], {icon: DOG_ICON}).addTo(MAP);
+  //   })
+  // } 
 
   function onMapClick(e) {
     MAP.setView(e.latlng);

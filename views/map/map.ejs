@@ -6,7 +6,7 @@
 </div>
 <div id="map">
   <script src="javascripts/map.js"></script>
-  </div>
-  <ul style="display: none"><% dogevents.forEach(function(dogevent){ %>
-    <li><%=dogevent%></li>
-  <% })%></ul> 
+</div>
+  <script>
+    const dogevents = <%- JSON.stringify(dogevents)  %>; 
+ </script>
