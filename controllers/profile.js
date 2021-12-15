@@ -1,11 +1,8 @@
 
 // var Profile = require('../models/user');
 
-
 const User = require("../models/user");
 const fs = require("fs")
-
-// var Profile = require('../models/user'); 
 
 var ProfileController = {
   Index: function(req, res) {

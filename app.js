@@ -60,7 +60,7 @@ const sessionChecker = (req, res, next) => {
 };
 
 // route setup
-app.use('/', mapRouter);
+app.use('/', usersRouter);
 app.use('/map', sessionChecker, mapRouter);
 app.use('/users', usersRouter);
 app.use('/dogevent', dogeventRouter);
