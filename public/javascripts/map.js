@@ -11,9 +11,10 @@ window.addEventListener('DOMContentLoaded', () => {
     zoomOffset: -1,
     }).addTo(MAP);
   // Add icon
+  const userImage = document.getElementById("user_image").innerHTML
   const DOG_ICON = L.icon({
-    iconUrl: '/images/hugo.png',
-    iconSize:     [60, 50], // size of the icon
+    iconUrl: `data:image/jpeg;base64,${userImage}`,
+    iconSize:     [50, 50], // size of the icon
     iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
     popupAnchor:  [33, -10] // point from which the popup should open relative to the iconAnchor
 });
