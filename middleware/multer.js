@@ -9,7 +9,6 @@ var storage = multer.diskStorage({
   // specifying unique filename for uploaded file
   filename:function(req,file,cb){
     var ext = file.originalname.substring(file.originalname.lastIndexOf('.'));
-
     cb(null,file.fieldname + '-' + Date.now() + ext)
   } 
 })
