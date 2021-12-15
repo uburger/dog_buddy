@@ -1,9 +1,9 @@
-var User = require('../models/user');
-var bcrypt = require('bcrypt'); 
+const User = require('../models/user');
+const bcrypt = require('bcrypt'); 
 
 var SessionsController = {
   New: function(req, res) {
-    res.render('sessions/new', { title: 'Sign-in' });
+    res.render('sessions/new', { title: 'Sign-in', loggedIn: false });
   },
 
   Create: function(req, res) {
@@ -22,7 +22,7 @@ var SessionsController = {
               res.redirect('/map');
 
             } else {
-                return res.redirect("/sessions/new");
+              res.redirect('/sessions/new?error=' + encodeURIComponent('Password_Username_Incorrect'));
             }
 
         })
