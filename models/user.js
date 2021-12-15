@@ -9,7 +9,6 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   email: { type: String, required: true, index: { unique: true } },
   password: { type: String, required: true },
-
   filename:{ type:String, required:true },
   contentType:{ type:String, required:true },
   imageBase64:{ type:String, required:true }
