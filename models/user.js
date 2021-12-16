@@ -5,14 +5,18 @@ const SALT_WORK_FACTOR = 10;
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 const UserSchema = new Schema({
   email: { type: String, required: true, index: { unique: true } },
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  filename:{ type:String, required:true },
+  contentType:{ type:String, required:true },
+  imageBase64:{ type:String, required:true }
 });
 
 UserSchema.pre('save', function(next) {
   const user = this;
-  
+
   // generate a salt
   bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
       if (err) return next(err);
@@ -37,3 +41,4 @@ UserSchema.methods.comparePassword = function(candidatePassword, cb) {
 const User = mongoose.model('User', UserSchema);
 
 module.exports = User;
+

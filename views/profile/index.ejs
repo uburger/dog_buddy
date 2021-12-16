@@ -1,0 +1,37 @@
+<h2>Paw Pal Profile</h2>
+
+<!-- don't delete plz! -->
+<a href='http://localhost:8080'>Chat room Link</a>
+<div id='profilePicture' >
+    <form action="/profile/uploadphoto" enctype="multipart/form-data" method="POST"> 
+        <label for="myfile">Upload profile photo:</label>
+        <input type="file" id="myfile" name="profileImage" accept="image/*"><br><br>
+        <input type="submit" value="Upload Photo">
+      </form>    
+</div>
+
+<!-- Profile Pic -->
+<div class="profileContainer">
+  <img src="#" alt="profile pic">
+</div>
+<!-- Profile Pic -->
+
+<!-- About info form  -->
+<div class="aboutInfo">
+  <form id='petInfo' action="/profile" method="POST">
+    <fieldset>
+      <legend>About Me:</legend>
+      <label>Name:</label>
+      <input placeholder="Enter here" type="text" id="fname" name="fname"><br>
+      <label>Breed:</label>
+      <input placeholder="Enter here" type="text" id="breed" name="breed"><br>
+      <label>Age:</label>
+      <input type="text" id="age" name="age_years" placeholder="Enter here"><br><br>
+      <!-- <input type="number" id="age" min="1" max="12" name="age_months"><br> -->
+      <textarea name=“description” rows=“1” cols="60" placeholder="Feel free to add a short puppy bio..."></textarea><br><br>
+      <input type="submit" value="Submit">
+    </fieldset>
+  </form>
+</div>
+<!-- About info form  -->
+

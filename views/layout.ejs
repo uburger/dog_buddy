@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -21,15 +22,24 @@
       <nav>
         <div></div>
         <div>
-          <h1 id="brand">Pet Puppy Paw Pals</h1>
-          <h1 id="short">PPPP</h1>
+          <h1 id="brand">Paw Pals</h1>
+          <h1 id="short">PP</h1>
         </div>
         <div class="nav-menu">
+          <% if (loggedIn) { %>
           <ul>
-            <li><a href=#>Map</a></li>
-            <li><a href=#>Profile</a></li>
-            <li><a href=#>Logout</a></li>
-          </ul>
+            <form action="/sessions?_method=DELETE" method="POST">
+              <li class="nav-link"><a href='/map'>Map</a></li>
+              <li class="nav-link"><a href='/profile'>Profile</a></li>
+              <li class="nav-link"><input id="logout" type="submit" value="Logout"></li>
+            </form>
+            </ul>
+          <% } else { %>
+            <ul>
+              <li class="nav-link"><a id="sign-up" href="/users/new">Sign Up</a></li>
+              <li class="nav-link"><a id="sign-in" href="/sessions/new">Sign In</a></li>
+            </ul>
+          <% } %>
           <div class="icon-container">
             <button class="menu-icon"><img src="/images/paw.png" alt=""></button>
           </div>
@@ -50,7 +60,7 @@
     </ul>
   </div>
   <div class="body-container">
-    <%-body %>
+    <%-body %> 
   </div>
   <div class="space-div-bottom"></div>
 
@@ -58,6 +68,6 @@
     <p>Copyright&copy; 2021, Pet Puppy Paw Pals Corporation</p>
   </footer>
 
-  <script src="/javascripts/sideMenu.js"></script>
+  <script src="/javascripts/sideMenu.js"></script> 
 </body>
 </html>

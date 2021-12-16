@@ -64,4 +64,9 @@ typings/
 cypress/screenshots
 cypress/videos
 
+
 apiKey.js
+
+# upload folder
+uploads/
+

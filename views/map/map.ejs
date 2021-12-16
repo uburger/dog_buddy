@@ -1,3 +1,5 @@
+<h1 id="title">Map</h1>
+
 <div id="coordinateInput">
   <button id=update-map>Update View</button>
   <input type="text" name="lat" id="lat">
@@ -6,6 +8,7 @@
 <div id="map">
   <script src="javascripts/map.js"></script>
 </div>
+
 
 <!-- weather api form  -->
 <h3>Weather Checker </h3>
@@ -21,4 +24,10 @@
 <!-- weather api js code -->
 <script type="module" src="javascripts/weatherAPI.js"></script>
 
+
+
+<p style="display: none;" id="user_image"> <%= user.imageBase64 %> </p>
+<script>
+  const dogevents = <%- JSON.stringify(dogevents)  %>; 
+</script>
 
