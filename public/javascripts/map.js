@@ -1,7 +1,19 @@
 window.addEventListener('DOMContentLoaded', () => { 
   /*global L*/
   const MAP = L.map('map')
+  const mapLat = sessionStorage.getItem('currentLat');
+  const mapLon = sessionStorage.getItem('currentLon');
+  const mapZoom = sessionStorage.getItem('currentZoom');
+  console.log(sessionStorage)
+  console.log(mapLat)
+  if (mapLat) {
+      MAP.setView([mapLat, mapLon], mapZoom)
+      sessionStorage.removeItem('currentLat');
+      sessionStorage.removeItem('currentLon');
+      sessionStorage.removeItem('currentZoom');
+  } else {
   MAP.locate({setView: true, maxZoom: 16});
+  }
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 18,
@@ -97,4 +109,12 @@ window.addEventListener('DOMContentLoaded', () => {
     MARKER.bindPopup(`${DOGEVENT} LAT: ${e.latlng.lat} LON: ${e.latlng.lng}`).openPopup();
   }
   MAP.on('click', onMapClick);
+  
+  window.addEventListener("beforeunload", function () {
+    const currentCenter = MAP.getCenter()
+    sessionStorage.setItem('currentLat', currentCenter.lat)
+    sessionStorage.setItem('currentLon', currentCenter.lng)
+    sessionStorage.setItem('currentZoom', MAP.getZoom())
+  });
+
 })
