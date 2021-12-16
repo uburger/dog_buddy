@@ -15,6 +15,12 @@ const UsersController = {
     req.body.contentType = 'image/jpeg'
     req.body.imageBase64 = encodedimage
 
+    req.body.name = "null"
+    req.body.breed = "null"
+    req.body.age = 0000
+    req.body.bio = "null"
+    
+
     var email = req.body.email;
 
     User.findOne({email: email}).then(user => { 
