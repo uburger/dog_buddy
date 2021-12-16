@@ -14,7 +14,7 @@ var temp = document.querySelector('.temp');
 // 2) part 1 - print the api json data - console.log(data). part 2 - grab the json data from api call
 // 3) Create error message if api call does not work 
 button.addEventListener('click', function(){
-    fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&appid='+WEATHER_API_KEY)
+    fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&units=metric&appid='+WEATHER_API_KEY)
     .then(response => response.json())
     .then(data => {
         var nameValue = data['name']; //key value pairs from Json data 
