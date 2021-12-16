@@ -1,9 +1,7 @@
-window.addEventListener('DOMContentLoaded', () => {
-  // const leafletMap = require('leaflet-map') 
-  // Create and load the map
+window.addEventListener('DOMContentLoaded', () => { 
   /*global L*/
-  
-  const MAP = L.map('map').setView([51.505, -0.09], 13);
+  const MAP = L.map('map')
+  MAP.locate({setView: true, maxZoom: 16});
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 18,
@@ -11,7 +9,6 @@ window.addEventListener('DOMContentLoaded', () => {
     tileSize: 512,
     zoomOffset: -1,
     }).addTo(MAP);
-    MAP.locate({setView: true, maxZoom: 16});
   // Add icon
   const userImage = document.getElementById("user_image").innerHTML
   const DOG_ICON = L.icon({
