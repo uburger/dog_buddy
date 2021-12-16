@@ -36,7 +36,13 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     // eslint-disable-next-line no-unused-vars
     const EVENT_MARKER = L.marker([dogevent.eventLat, dogevent.eventLon], {icon: organizerIcon}).addTo(MAP);
-    })
+    EVENT_MARKER.bindPopup(`<h4>${dogevent.eventHeadline} </h4>
+    <p> ${dogevent.eventDescript} </p> 
+    Time: ${dogevent.eventDate} ${dogevent.eventTime} <br> 
+    With: ${dogevent.eventOrganizer} <br> 
+    LAT: ${dogevent.eventLat} <br>
+    LON: ${dogevent.eventLon}`);
+  })
   // Update Button Code
   if(updateButton !== null) {
     updateButton.addEventListener('click', ()=>{
