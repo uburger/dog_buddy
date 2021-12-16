@@ -11,7 +11,6 @@ app.get('/', function(req, res) {
     console.log('listening on *:8080');
 });
 
-
 io.sockets.on('connection', function(socket) {
     socket.on('username', function(username) {
         socket.username = username;

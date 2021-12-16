@@ -26,8 +26,16 @@ window.addEventListener('DOMContentLoaded', () => {
   // Show events
   /*global dogevents*/
     dogevents.forEach((dogevent) => {
+      /*global allUser */
+    const eventOrganizer = allUser.find(user => user.email === dogevent.eventOrganizer)
+    const organizerIcon = L.icon({
+      iconUrl: `data:image/jpeg;base64,${eventOrganizer.imageBase64}`,
+      iconSize:     [50, 50], // size of the icon
+      iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+      popupAnchor:  [33, -10] // point from which the popup should open relative to the iconAnchor
+    });
     // eslint-disable-next-line no-unused-vars
-    const EVENT_MARKER = L.marker([dogevent.eventLat, dogevent.eventLon], {icon: DOG_ICON}).addTo(MAP);
+    const EVENT_MARKER = L.marker([dogevent.eventLat, dogevent.eventLon], {icon: organizerIcon}).addTo(MAP);
     })
   // Update Button Code
   if(updateButton !== null) {
