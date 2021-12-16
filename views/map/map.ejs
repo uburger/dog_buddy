@@ -8,8 +8,27 @@
 <div id="map">
   <script src="javascripts/map.js"></script>
 </div>
+
+
+<!-- weather api form  -->
+<h3>Weather Checker </h3>
+<div class="input">
+  <input placeholder="Enter a city" type="text" class="inputValue">
+  <input type="submit" value="submit" class="button">
+</div>
+<div class="display">
+  <h1 class="name"></h1>
+  <p class="desc"></p>
+  <p class="temp"></p>
+</div>
+<!-- weather api js code -->
+<script type="module" src="javascripts/weatherAPI.js"></script>
+
+
+
 <p style="display: none;" id="user_image"> <%= user.imageBase64 %> </p>
 <script>
   const dogevents = <%- JSON.stringify(dogevents)  %>; 
   const allUser = <%- JSON.stringify(allUser)  %>; 
 </script>
+
