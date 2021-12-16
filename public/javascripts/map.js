@@ -1,9 +1,19 @@
-window.addEventListener('DOMContentLoaded', () => {
-  // const leafletMap = require('leaflet-map') 
-  // Create and load the map
+window.addEventListener('DOMContentLoaded', () => { 
   /*global L*/
-  
-  const MAP = L.map('map').setView([51.505, -0.09], 13);
+  const MAP = L.map('map')
+  const mapLat = sessionStorage.getItem('currentLat');
+  const mapLon = sessionStorage.getItem('currentLon');
+  const mapZoom = sessionStorage.getItem('currentZoom');
+  console.log(sessionStorage)
+  console.log(mapLat)
+  if (mapLat) {
+      MAP.setView([mapLat, mapLon], mapZoom)
+      sessionStorage.removeItem('currentLat');
+      sessionStorage.removeItem('currentLon');
+      sessionStorage.removeItem('currentZoom');
+  } else {
+  MAP.locate({setView: true, maxZoom: 16});
+  }
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 18,
@@ -11,7 +21,6 @@ window.addEventListener('DOMContentLoaded', () => {
     tileSize: 512,
     zoomOffset: -1,
     }).addTo(MAP);
-    MAP.locate({setView: true, maxZoom: 16});
   // Add icon
   const userImage = document.getElementById("user_image").innerHTML
   const DOG_ICON = L.icon({
@@ -26,9 +35,23 @@ window.addEventListener('DOMContentLoaded', () => {
   // Show events
   /*global dogevents*/
     dogevents.forEach((dogevent) => {
+      /*global allUser */
+    const eventOrganizer = allUser.find(user => user.email === dogevent.eventOrganizer)
+    const organizerIcon = L.icon({
+      iconUrl: `data:image/jpeg;base64,${eventOrganizer.imageBase64}`,
+      iconSize:     [50, 50], // size of the icon
+      iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+      popupAnchor:  [33, -10] // point from which the popup should open relative to the iconAnchor
+    });
     // eslint-disable-next-line no-unused-vars
-    const EVENT_MARKER = L.marker([dogevent.eventLat, dogevent.eventLon], {icon: DOG_ICON}).addTo(MAP);
-    })
+    const EVENT_MARKER = L.marker([dogevent.eventLat, dogevent.eventLon], {icon: organizerIcon}).addTo(MAP);
+    EVENT_MARKER.bindPopup(`<h4>${dogevent.eventHeadline} </h4>
+    <p> ${dogevent.eventDescript} </p> 
+    Time: ${dogevent.eventDate} ${dogevent.eventTime} <br> 
+    With: ${dogevent.eventOrganizer} <br> 
+    LAT: ${dogevent.eventLat} <br>
+    LON: ${dogevent.eventLon}`);
+  })
   // Update Button Code
   if(updateButton !== null) {
     updateButton.addEventListener('click', ()=>{
@@ -86,4 +109,12 @@ window.addEventListener('DOMContentLoaded', () => {
     MARKER.bindPopup(`${DOGEVENT} LAT: ${e.latlng.lat} LON: ${e.latlng.lng}`).openPopup();
   }
   MAP.on('click', onMapClick);
+  
+  window.addEventListener("beforeunload", function () {
+    const currentCenter = MAP.getCenter()
+    sessionStorage.setItem('currentLat', currentCenter.lat)
+    sessionStorage.setItem('currentLon', currentCenter.lng)
+    sessionStorage.setItem('currentZoom', MAP.getZoom())
+  });
+
 })
