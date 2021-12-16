@@ -10,7 +10,7 @@ var ProfileController = {
   },
 
   // new function to update User db with submitted info from profile page form 
-  UpdateBio: function(req, res) {
+  Update: function(req, res) {
     const filter = { email: req.session.user.email }
     const update = {
     name: req.body.name,
@@ -18,14 +18,10 @@ var ProfileController = {
     age: req.body.age, 
     bio: req.body.bio 
     }
-    User.findOneAndUpdate( update, { new: true, loggedIn: true }, (err, updatedUser)=>{
+    User.findOneAndUpdate(filter, update, { new: true, loggedIn: true }, (err, updatedUser)=>{
       if(err) { throw err }
       req.session.user = updatedUser
       res.status(201).redirect('/profile');
-
-    // user.save(function(err)) {
-    //   if(err) { throw err }
-    //   res.status(201).redirect('/profile');
     })
   },
   

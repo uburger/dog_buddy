@@ -13,10 +13,12 @@
   <img src="#" alt="profile pic">
 </div>
 <!-- Profile Pic -->
-
+<p>
+<%- name %>
+</p>
 <!-- About info form  -->
 <div class="aboutInfo">
-  <form id='petInfo' action="/profile/bio" method="POST">
+  <form id='petInfo' action="/profile/update" method="POST">
     <fieldset>
       <legend>About Me:</legend>
       <label>Name:</label>
@@ -32,7 +34,7 @@
       <label>Age:</label>
       <input type="text" id="age" name="age" placeholder="Enter here"><br><br>
       <label>Bio:</label>
-      <input type="text" name=“bio” placeholder="Feel free to add a short puppy bio..."></input><br><br>
+      <input type="text" id="bio" name="bio" placeholder="Enter here"><br><br>
       <input type="submit" value="Submit">
     </fieldset>
   </form>

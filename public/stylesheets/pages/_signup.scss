@@ -1,0 +1,24 @@
+#formContent {
+  display: grid;
+  justify-content: center;
+  flex-direction: column;
+  background-color: $primaryColour;
+  border: solid 2px $textColour;
+  border-radius: 10%;
+  justify-self: center;
+  margin: auto;
+  #new-user-form {
+    display: grid;
+    justify-content: center;
+    align-items: space-around;
+    input {
+      margin-top: 10px;
+    }
+    .submit {
+      width: 50%;
+      justify-self: center;
+      @include button-bg($buttonColour);
+      @include page-btn();
+    }
+  }
+}

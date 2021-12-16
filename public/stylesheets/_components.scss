@@ -9,3 +9,8 @@
     background:darken($bg,25%);
   } 
 }
+
+@mixin page-btn {
+  border-radius: 15%;
+  color: $secondaryColour;
+}
