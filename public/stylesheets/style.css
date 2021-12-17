@@ -73,12 +73,14 @@ nav ul {
     display: none;
   }
 }
+
 nav ul .nav-link {
   vertical-align: middle;
   display: inline;
   font-family: "Fira Sans", sans-serif;
   font-size: 1rem;
 }
+
 nav ul .nav-link a {
   color: #f2f2f2;
   text-decoration: none;
@@ -87,27 +89,32 @@ nav ul .nav-link a {
   font-size: inherit;
   padding: 26px;
 }
+
 nav ul .nav-link a:hover {
   background-color: #56766d;
   cursor: pointer;
 }
+
 nav ul form {
   text-align: right;
   list-style-type: none;
   list-style-type: none;
   margin: 0;
 }
+
 @media (max-width: 991px) {
   nav ul form {
     display: none;
   }
 }
+
 nav ul form .nav-link {
   vertical-align: middle;
   display: inline;
   font-family: "Fira Sans", sans-serif;
   font-size: 1rem;
 }
+
 nav ul form .nav-link a {
   color: #f2f2f2;
   text-decoration: none;
@@ -116,10 +123,12 @@ nav ul form .nav-link a {
   font-size: inherit;
   padding: 26px;
 }
+
 nav ul form .nav-link a:hover {
   background-color: #56766d;
   cursor: pointer;
 }
+
 nav ul form .nav-link #logout {
   color: #f2f2f2;
   background-color: inherit;
@@ -127,6 +136,7 @@ nav ul form .nav-link #logout {
   font-size: inherit;
   padding: 23px;
 }
+
 nav ul form .nav-link #logout:hover {
   background-color: #56766d;
   cursor: pointer;
@@ -271,13 +281,45 @@ footer p {
   font-size: 0.7rem;
 }
 
+
 #map {
   height: 100%;
   width: 100%;
   min-width: 200px;
   min-height: 100px;
   max-width: 1200px;
+
+.profile_container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+}
+
+.profile_container .profile-content h2 {
+  font-size: 40px;
+}
+
+.profile_container .profile-content #profilePicture form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+}
+
+.profile_container .profile-content #profilePicture form #myfile {
+  margin-left: 150px;
+  font-size: 12px;
+}
+
+.profile_container .profile-content #profilePicture form #submit {
+  width: 100px;
+
   margin: auto;
+  background: #56766d;
+  color: #f5f0f0;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
 #formContent {
@@ -346,3 +388,141 @@ footer p {
 .container #form-content #new-session-form .submit {
   background-color: #56766d;
 }/*# sourceMappingURL=style.css.map */
+=======
+.profile_container .profile-content #profilePicture form #submit:hover {
+  background: #455f57;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.profile_container .profile-content #profilePicture form #submit:active {
+  background: #202c29;
+}
+
+.profile_container .profile-content .aboutInfo fieldset {
+  color: #56766d;
+  border-radius: 10px;
+  border-style: dashed;
+  border-color: #56766d;
+  margin-top: 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+}
+
+.profile_container .profile-content .aboutInfo fieldset legend {
+  font-weight: 700;
+}
+
+.profile_container .profile-content .aboutInfo fieldset label {
+  font-size: 15px;
+}
+
+.profile_container .profile-content .aboutInfo fieldset input {
+  margin: auto;
+  background-color: #b5c9c3;
+  border-radius: 10px;
+}
+
+.profile_container .profile-content .aboutInfo fieldset input::-webkit-input-placeholder {
+  color: #f5f0f0;
+}
+
+.profile_container .profile-content .aboutInfo fieldset input:-ms-input-placeholder {
+  color: #f5f0f0;
+}
+
+.profile_container .profile-content .aboutInfo fieldset input::-ms-input-placeholder {
+  color: #f5f0f0;
+}
+
+.profile_container .profile-content .aboutInfo fieldset input::placeholder {
+  color: #f5f0f0;
+}
+
+.profile_container .profile-content .aboutInfo fieldset select {
+  margin: auto;
+  color: #f5f0f0;
+  background-color: #b5c9c3;
+  border-radius: 10px;
+}
+
+.profile_container .profile-content .aboutInfo fieldset textarea {
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-bottom: 40px;
+  border-radius: 10px;
+  background-color: #b5c9c3;
+}
+
+.profile_container .profile-content .aboutInfo fieldset textarea::-webkit-input-placeholder {
+  color: #f5f0f0;
+}
+
+.profile_container .profile-content .aboutInfo fieldset textarea:-ms-input-placeholder {
+  color: #f5f0f0;
+}
+
+.profile_container .profile-content .aboutInfo fieldset textarea::-ms-input-placeholder {
+  color: #f5f0f0;
+}
+
+.profile_container .profile-content .aboutInfo fieldset textarea::placeholder {
+  color: #f5f0f0;
+}
+
+.profile_container .profile-content .aboutInfo fieldset #submit {
+  width: 100px;
+  margin: auto;
+  background: #56766d;
+  color: #f5f0f0;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.profile_container .profile-content .aboutInfo fieldset #submit:hover {
+  background: #455f57;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.profile_container .profile-content .aboutInfo fieldset #submit:active {
+  background: #202c29;
+}
+
+.profile_container .profile-content #chat-room {
+  width: 150px;
+  margin: auto;
+  background: #56766d;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.profile_container .profile-content #chat-room:hover {
+  background: #455f57;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.profile_container .profile-content #chat-room:active {
+  background: #202c29;
+}
+
+.profile_container .profile-content #chat-room a {
+  color: #f5f0f0;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+  min-width: 200px;
+  min-height: 100px;
+  max-width: 1200px;
+  margin: auto;
+}
+/*# sourceMappingURL=style.css.map */
+

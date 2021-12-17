@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
     iconUrl: `data:image/jpeg;base64,${userImage}`,
     iconSize:     [50, 50], // size of the icon
     iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
-    popupAnchor:  [33, -10] // point from which the popup should open relative to the iconAnchor
+    popupAnchor:  [25, -10] // point from which the popup should open relative to the iconAnchor
   });
   // Add marker
   const MARKER = L.marker([51.505, -0.09], {icon: DOG_ICON}).addTo(MAP);
@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
       iconUrl: `data:image/jpeg;base64,${eventOrganizer.imageBase64}`,
       iconSize:     [50, 50], // size of the icon
       iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
-      popupAnchor:  [33, -10] // point from which the popup should open relative to the iconAnchor
+      popupAnchor:  [25, -10] // point from which the popup should open relative to the iconAnchor
     });
     // eslint-disable-next-line no-unused-vars
     const EVENT_MARKER = L.marker([dogevent.eventLat, dogevent.eventLon], {icon: organizerIcon}).addTo(MAP);
@@ -105,7 +105,7 @@ window.addEventListener('DOMContentLoaded', () => {
     '</div>'+
     '<div class="form-group">'+
         '<label><strong>Description: </strong></label><br>'+
-        '<textarea class="form-control" rows="6" id="descript" name="descript">...</textarea>'+
+        '<textarea class="form-control" rows="6" id="descript" name="descript" placeholder="Please enter a description"></textarea>'+
     '</div>'+
     '<input style="display: none;" type="text" id="lat" name="markerLat" value="'+e.latlng.lat+'" />'+
     '<input style="display: none;" type="text" id="lng" name="markerLon" value="'+e.latlng.lng+'" />'+
