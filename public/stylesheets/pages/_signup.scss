@@ -1,0 +1,45 @@
+  
+  #formContent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    height: 300px;
+    #new-user-form {
+      background-color: $primaryColour;
+      border: 2px solid $buttonColour;
+      border-radius: 10px;
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      #title {
+        font-size: 40px;
+        height: 10px;
+        align-self: top;
+      }
+      .email-password {
+        display: grid;
+        grid-template-rows: auto;
+        input {
+          color: $buttonColour;
+          background-color: hsl(5, 20, 93);
+          margin: auto;
+          width: 300px;
+          height: 40px;
+          border-radius: 10px;
+        }
+      }
+      .submit {
+        color: $secondaryColour;
+        margin:auto;
+        width: 200px;
+        height: 40px;
+        border-radius: 20px;
+        @include button-bg($buttonColour);
+      }
+    }
+  }
+
+  #message {
+    h3 {
+      font: small;
+    }
+  }

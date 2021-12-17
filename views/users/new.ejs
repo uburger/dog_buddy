@@ -1,13 +1,16 @@
 <div id="formContent">
+  <div class="filler"></div>
   <form id="new-user-form" action="/users" method="post">
-    <br>
     <legend id="title">Create an account</legend>
-    <input type="email" id="email" class="" name="email" placeholder="email">
-    <input type="password" id="password" class="" name="password" 
-    placeholder="password"
-    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
-    require>
+    <div class="email-password">
+      <input type="email" id="email" class="" name="email" placeholder="email">
+      <input type="password" id="password" class="" name="password" 
+      placeholder="password"
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+      title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
+      require>
+      <p style="color: blue;">or login with Acebook...</p>
+    </div>
     <input type="submit" class="submit" value="Submit">
   </form>
 </div>
