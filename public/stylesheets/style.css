@@ -328,4 +328,21 @@ footer p {
 
 #message h3 {
   font: small;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  height: 500px;
+}
+.container #form-content #new-session-form {
+  background-color: #b5c9c3;
+  border: 2px solid #56766d;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+.container #form-content #new-session-form .submit {
+  background-color: #56766d;
 }/*# sourceMappingURL=style.css.map */
