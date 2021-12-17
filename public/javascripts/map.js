@@ -105,10 +105,10 @@ window.addEventListener('DOMContentLoaded', () => {
     '</div>'+
     '<div class="form-group">'+
         '<label><strong>Description: </strong></label><br>'+
-        '<textarea class="form-control" rows="6" id="descript" name="descript">...</textarea>'+
+        '<textarea class="form-control" rows="6" id="descript" name="descript" placeholder="Please enter a description"></textarea>'+
     '</div>'+
     '<input style="display: none;" type="text" id="lat" name="markerLat" value="'+e.latlng.lat+'" />'+
-    '<input style="display: none;" type="text" id="lng" name="markerLon" value="'+e.latlng+'" />'+
+    '<input style="display: none;" type="text" id="lng" name="markerLon" value="'+e.latlng.lng+'" />'+
     '<button type="submit" value="submit" class="submit">Create Event</button><br>'+
     '</form>';
     MARKER.bindPopup(`${DOGEVENT} LAT: ${e.latlng.lat} <br> LON: ${e.latlng.lng}`).openPopup();
