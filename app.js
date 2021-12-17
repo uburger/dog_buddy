@@ -6,6 +6,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const methodOverride = require('method-override')
+const dotenv = require('dotenv').config()
 
 const mapRouter = require('./routes/map');
 const usersRouter = require('./routes/users');

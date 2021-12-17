@@ -1,6 +1,7 @@
 'use strict'
 const DogEvent = require('../models/dogevent');
 const User = require('../models/user');
+const WEATHER_API_KEY=process.env.WEATHER_API_KEY
 
 const MapController = {
     Map: function(req, res) {
@@ -12,7 +13,9 @@ const MapController = {
             dogevents: dogevents, 
             allUser: allUser,
             title: 'Map', 
-            loggedIn: true});
+            loggedIn: true,
+            WEATHER_API_KEY: WEATHER_API_KEY
+          });
         })
       })
     }  

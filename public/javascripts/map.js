@@ -4,8 +4,6 @@ window.addEventListener('DOMContentLoaded', () => {
   const mapLat = sessionStorage.getItem('currentLat');
   const mapLon = sessionStorage.getItem('currentLon');
   const mapZoom = sessionStorage.getItem('currentZoom');
-  console.log(sessionStorage)
-  console.log(mapLat)
   if (mapLat) {
       MAP.setView([mapLat, mapLon], mapZoom)
       sessionStorage.removeItem('currentLat');
@@ -50,7 +48,24 @@ window.addEventListener('DOMContentLoaded', () => {
     Time: ${dogevent.eventDate} ${dogevent.eventTime} <br> 
     With: ${dogevent.eventOrganizer} <br> 
     LAT: ${dogevent.eventLat} <br>
-    LON: ${dogevent.eventLon}`);
+    LON: ${dogevent.eventLon} <br>
+    <p class=temperature></p>
+    <p class=weather></p>`);
+    // add eventlistener for click to grab weather
+    EVENT_MARKER.addEventListener('click', function(){
+      fetch(`https://api.openweathermap.org/data/2.5/find?lat=${dogevent.eventLat}&lon=${dogevent.eventLon}&cnt=1&units=metric&appid=${WEATHER_API_KEY}`)
+      .then(response => response.json())
+      .then(data => {
+          console.log(data.list[0])
+          const tempValue = data.list[0]['main']['temp']; 
+          const descValue = data.list[0]['weather'][0]['main']; 
+          const desc = document.querySelector('.weather');
+          const temp = document.querySelector('.temperature');
+          temp.innerHTML =`Temperature: ${tempValue}°C`;
+          desc.innerHTML = `Weather: ${descValue}`;
+      })
+  .catch(() => alert("Nothing here"))
+  })
   })
   // Update Button Code
   if(updateButton !== null) {
@@ -76,12 +91,6 @@ window.addEventListener('DOMContentLoaded', () => {
     L.circle(e.latlng, radius).addTo(MAP);
   }
   MAP.on('locationfound', onLocationFound);
-  // const showEvents = function(dogevents) {
-  //   dogevents.forEach((dogevent) => {
-  //     // eslint-disable-next-line no-unused-vars
-  //     const EVENT_MARKER = L.marker([dogevent.eventLat, dogevent.eventLon], {icon: DOG_ICON}).addTo(MAP);
-  //   })
-  // } 
 
   function onMapClick(e) {
     MAP.setView(e.latlng);
@@ -90,23 +99,19 @@ window.addEventListener('DOMContentLoaded', () => {
     '<div class="form-group">'+ 
     '<textarea class="form-control" rows="1" id="headline" name="headline">...</textarea>'+
     '<div class="form-group">'+
-        '<label class="control-label col-sm-5"><strong>Date: </strong></label>'+
+        '<label><strong>Date: <br></strong></label>'+
         '<input type="date" placeholder="Required" id="date" name="date" class="form-control"/>'+ 
         '<input type="time" id="time" name="time" required>'+
     '</div>'+
-    
     '<div class="form-group">'+
-        '<label class="control-label col-sm-5"><strong>Description: </strong></label>'+
+        '<label><strong>Description: </strong></label><br>'+
         '<textarea class="form-control" rows="6" id="descript" name="descript">...</textarea>'+
     '</div>'+
     '<input style="display: none;" type="text" id="lat" name="markerLat" value="'+e.latlng.lat+'" />'+
     '<input style="display: none;" type="text" id="lng" name="markerLon" value="'+e.latlng.lng+'" />'+
-    '<div class="form-group">'+
-      '<div style="text-align:center;" class="col-xs-4 col-xs-offset-2"><button type="button" class="btn">Cancel</button></div>'+
-      '<div style="text-align:center;" class="col-xs-4"><button type="submit" value="submit" class="btn btn-primary trigger-submit">Submit</button></div>'+
-    '</div>'+
+    '<button type="submit" value="submit" class="submit">Create Event</button><br>'+
     '</form>';
-    MARKER.bindPopup(`${DOGEVENT} LAT: ${e.latlng.lat} LON: ${e.latlng.lng}`).openPopup();
+    MARKER.bindPopup(`${DOGEVENT} LAT: ${e.latlng.lat} <br> LON: ${e.latlng.lng}`).openPopup();
   }
   MAP.on('click', onMapClick);
   
